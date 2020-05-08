@@ -61,6 +61,12 @@ class StatementController extends Controller
             $trans->where('created_at','<' , $data['to_date']);
         }
 
+        if($request->has('password') && $request->has('password_confirm')){
+            if($request->password == $request->password_confirm){
+                $data['pass'] = $request->password;
+            }
+        }
+
 
         $trans = $trans->get();
 
@@ -85,31 +91,53 @@ class StatementController extends Controller
         $data2['from_date'] = $this->makeNewDate($data2['from_date']);
         $data2['to_date'] = $this->makeNewDate($data2['to_date']);
 
-        //return view('admin.pdf.pdf', compact('trans', 'acc', 'data2'));
+        //return view('admin.pdf.new', compact('trans', 'acc', 'data2'));
         $pdf = PDF::loadView('admin.pdf.new', compact('trans', 'acc', 'data2'));
 
-
+        //return $pdf->download('invoice.pdf');
         //return $pdf->stream();
 
         $f = public_path();
 
         $s_name = date('d-m-y') . "_" . Auth::id() . "_" . Str::random(4) . ".pdf";
-        $s_file = $f . '\\statements\\' . $s_name;
+        $s_file = $f . '/' . $s_name;
         $pdf->save($s_file);
 
-        $data = [
-            'name' => 'Eugene',
-            'attach' =>  $s_file
-        ];
+        if( array_key_exists('pass', $data2) ){
+            sleep(1);
+            $pass = $data2['pass'];
+            $str = "zip -P $pass $s_name.zip $s_name";
+            system($str);
+
+            $data = [
+                'name' => 'Eugene',
+                'attach' =>  "$s_name.zip"
+            ];
+            unlink($s_file);
+        }else{
+
+            $data = [
+                'name' => 'Eugene',
+                'attach' =>  $s_name
+            ];
+
+
+        }
+
+
+
+
+
 
         //$this->password(public_path() . "/hello2.pdf");
+
 
         $this->statementSave($s_name,  $data2['from_date'],  $data2['to_date']);
 
         Mail::to($data2['email'])
             ->send(new SendMail($data));
 
-        echo "Отправлен : <a href='$s_name'>ФАЙЛ</a>"  ;
+        return redirect('done');
     }
 
     public function makeDate($date)

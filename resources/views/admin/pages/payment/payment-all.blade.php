@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="main-content main-content_height portfolio" style="height:600px; overflow: scroll ">
+    <div class="main-content main-content_height portfolio">
         <div class="row">
             <div class="col col--lg-12">
                 <div class="overview__line">
@@ -114,7 +114,7 @@
                                     {{$item->created_at->format('d-m-Y')}}
                                 </div>
                                 <div class="table__list_col table__list_col-right" >
-                                    {{$item->updated_at->format('d-m-Y')}}
+                                    {{$item->created_at->format('d-m-Y')}}
                                 </div>
                                 <div class="table__list_col table__list_col-right" >
                                     {{$item->amount}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($item->account->currency_id)}}
@@ -148,7 +148,9 @@
                         {{ $transactions->links() }}
                     </div>
                 </div>
-                <div class="table__buttons table__buttons_offset"><a href="#" class="btn">Назад</a></div>
+                <div class="table__buttons table__buttons_offset">
+                    <a href="#" class="btn"  onclick="history.back();return false;">Назад</a></div>
+                </div>
                 <div class="table__buttons "><a href="#" class="btn">Details</a> <a href="#" class="btn">Файл в формате Excel</a> <a href="#" class="btn">Сохранить в HTML</a> <a href="#" class="btn">Печать</a></div>
             </div>
         </div>

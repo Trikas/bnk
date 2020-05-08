@@ -7,11 +7,13 @@ use App\Country;
 use App\Helpers\CurrencyHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
+use App\Mail\InfoMail;
 use App\Payment;
 use App\Template;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -53,27 +55,42 @@ class PaymentController extends Controller
         if($request->has('save'))
             $this->makeTemplate($request);
 
-        $acc = Account::find($request->account);
-
         $request->session()->put('form_data',$request->all());
 
+
+        if($request->has('account') && $request->account != null){
+            $acc = Account::find($request->account);
+        }else{
+            $acc = Account::find($request->account_old);
+            $request->session()->put('form_data.account', $request->account_old);
+        }
+
+
         // Конвертация валюты, если отличается от счета
+
         if($request->currency != $acc->currency_id){
             $amount = CurrencyHelper::Calculate($request->amount, $acc->currency_id, (int) $request->currency);
             $request->session()->put('form_data.amount', round($amount, 2));
         }
+        // Comision
+
+        $com_sum = CurrencyHelper::getComission($request->comision, session('form_data.amount'), $request->currency);
 
 
-        //dd( session('form_data'));
+        $request->session()->put('form_data.comision_amount', $com_sum);
+
+
+        //dump('В разделе ведутся работы. Приносим извинения за неудобства!');
+        //dd(session('form_data'));
         return view('admin.pages.payment.step2');
 
     }
 
-    #finishing step3
+    #finishing step3 Исходящий ПЛАТЕЖ
     public function step3(Request $request)
     {
 
-        //dd(session('form_data'));
+
 
         $account = session('form_data.account');
         $comision = CurrencyHelper::getComission(session('form_data.comision'), session('form_data.amount'));
@@ -84,40 +101,82 @@ class PaymentController extends Controller
             return abort('403');
 
 
-        $comision = CurrencyHelper::getComission(session('form_data.comision'), session('form_data.amount'));
+        //$comision = CurrencyHelper::getComission(session('form_data.comision'), session('form_data.amount'));
+        $comision = session('form_data.comision_amount');
 
 
         if($acc->currency_id != 2){
-            $comision = CurrencyHelper::Calculate($comision, $acc->currency_id, 2);
+          //  $comision = CurrencyHelper::Calculate($comision, $acc->currency_id, 2);
         }
 
 
-        //Создать платеж
+        // Очистить сумму от лишних символов
+        if(stristr(session('form_data.amount'), ',') == true) {
+            $pamount = str_replace(',','', session('form_data.amount'));
+        }else{
+            $pamount = session('form_data.amount');
+        }
+
+        //
+
+
+
+        //Создать платеж исходящий
+        $pnum = 'OUT TRASF  EB20022' . rand(10101, 99909) ;
+        $info = $pnum . ' F023 ' . 'F023T000' . rand(10101, 99909) ;
         $payment = new Payment();
         $payment->fill(session('form_data'));
+        $payment->amount = $pamount +  $comision;
+        $payment->number = $pnum;
+        $payment->recipier_info = $info . session('form_data.recipier_name');
         $payment->save();
-
         $last_trans = Transaction::whereUserId(Auth::id())->whereAccountId($acc->id)->orderBy('id', 'desc')->first();
-
+        // Транзакция без комиссии
         $trans = new Transaction();
         $trans->account_id = $acc->id;
         $trans->payment_id = $payment->id;
         $trans->user_id = Auth::id();
         $trans->country_id = session('form_data.country_id');
         $trans->type = 'OUT';
-        $trans->amount =  session('form_data.amount') +  $comision;
-
-        $trans->description =  session('form_data.recipier_name')
-            . ' ' . session('form_data.recipier_bank')
-            . ' ' . session('form_data.bic_bank')
-            . ' ' . session('form_data.recipier_info');
-
+        $trans->amount =  $pamount; //+  $comision;
+        $trans->description = $info . " " .session('form_data.recipier_name') ;
         $trans->status = Transaction::STATUS_NEW;
-        $trans->balance = $last_trans->balance - ( session('form_data.amount') +  $comision );
+
+
+        if(isset($last_trans->balance)){
+            $trans->balance = $acc->balance_current - ( $pamount  );
+        }else{
+            return('Обнаружена подозрительная операция!
+             Администратор свяжется с вами! ');
+        }
+
         $trans->save();
 
 
 
+        //Comission
+        // Отдельная транзакция для комиссии
+        if( session('form_data.comision') != 3 ){
+            $last_part = ' COMMISSION AND/OR SWIFT CHARGE ';
+            $trans2 = new Transaction();
+            $trans2->account_id = $acc->id;
+            $trans2->payment_id = $payment->id;
+            $trans2->user_id = Auth::id();
+            $trans2->country_id = session('form_data.country_id');
+            $trans2->type = 'OUT';
+            $trans2->amount =  $comision;
+            $trans2->description = $info . $last_part ;
+            $trans2->status = Transaction::STATUS_NEW;
+
+        }
+
+        $trans2->balance = $trans->balance - ( $comision  );
+
+        $trans2->save();
+
+        // Списываем с баланса аккаунта
+        $acc->balance_current = $acc->balance_current - ($pamount +  $comision);
+        $acc->save();
 
         //session('form_data')
         return view('admin.pages.payment.done');
@@ -177,6 +236,26 @@ class PaymentController extends Controller
             $amount = $request->amount;
         }
 
+        if(stristr($request->amount, ',') == true) {
+            $pamount = str_replace(',','.', $request->amount);
+        }else{
+            $pamount = $request->amount;
+        }
+
+        if(stristr($amount, ',') == true) {
+            $amount = str_replace(',','.', $amount);
+        }
+
+
+        //Создать платеж
+        $pnum = 'F0023TI' . rand(10101, 99909) ;
+        $payment = new Payment();
+        $payment->fill($request->all());
+        $payment->number = $pnum;
+        $payment->amount = $pamount;
+        $payment->recipier_info = 'INWARD TRANSF ' . $pnum . " B/O " .  $request->payer_name . " " . $request->description;
+        $payment->save();
+
         $trans = new Transaction();
         $trans->fill($request->all());
         $trans->user_id = $user_id;
@@ -184,13 +263,31 @@ class PaymentController extends Controller
         $trans->type = 'IN';
         $trans->amount = $amount;
         $trans->status = 1;
+        $trans->payment_id = $payment->id;
+        $trans->description = 'INWARD TRANSF ' . $pnum . " B/O " .  $request->payer_name . " " . $request->description;
         $trans->balance = $last_trans->balance + $amount;
         $trans->save();
 
         $account->balance_current = $account->balance_current + $amount;
         $account->save();
 
+        $this->sendInfo($trans);
+
         return view('admin.pages.payment.done');
+    }
+
+    public function sendInfo($trans)
+    {
+
+        $data = [
+            'email' => 'kievaero@gmail.com',
+            'name' => 'Info'
+        ];
+
+        Mail::to($data['email'])
+            ->send(new InfoMail($data, $trans));
+
+        return true;
     }
 
 

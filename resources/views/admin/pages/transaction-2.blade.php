@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="main-content main-content_height portfolio" style="height:600px; overflow: scroll ">
+    <div class="main-content main-content_height portfolio">
         <div class="row">
             <div class="col col--lg-12">
                 <div class="overview__line">
@@ -58,29 +58,26 @@
                                 <div class="name">Доступный остаток:</div>
                                 <div class="price">
                                     <div>
-                                        {{$account->balance_available_current ?? 0}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($account->currency_id)}}
+                                        {{$account->balance_current ?? 0}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($account->currency_id)}}
                                     </div>
                                 </div>
                             </div>
                             <div class="card__list">
                                 <div class="name">Критерий поиска:</div>
                                 <div class="price price_row">
-                                    <form autocomplete="off" action="{{route('transaction.arhive')}}" method="get" id="from-form">
-                                        <div class="price-input">
-                                            По фразе: <input minlength="2" class="myInput" name="search" @isset($search) value="{{$search}}" @endisset  placeholder="EB1910181528245 ">
-                                        </div>
-                                        <div class="price-input">
-                                            C: <input class="myInput datepicker" name="from_date" @isset($from_date) value="{{$from_date}}" @endisset  placeholder="2019-04-30">
-                                        </div>
-                                        <div class="price-input">
-                                            По: <input class="datepicker myInput" name="to_date" @isset($to_date) value="{{$to_date}}" @endisset placeholder="2019-04-30">
-                                        </div>
+                                    <form autocomplete="off" action="{{route('transaction.arhive')}}" method="get" id="from-form" style="display: flex; justify-content: center;     align-items: center;">
+                                            <div class="price-input">
+                                                C: <input class="myInput datepicker" utocomplete="off" name="from_date" @isset($from_date) value="{{$from_date}}" @endisset  placeholder="30.04.2019"> <img src="/images/cal.png" style="margin-bottom: -4px;">
+                                            </div>
+                                            <div class="price-input">
+                                                По: <input class="myInput datepicker" name="to_date" @isset($to_date) value="{{$to_date}}" @endisset placeholder="20.03.2020"> <img src="/images/cal.png" style="margin-bottom: -4px;">
+                                            </div>
+                                        <input type="hidden" name="acc" value="{{$account->id}}">
+                                            <div class=" ">
+                                                <button type="submit" class="btn btn-success"  style="margin-bottom: 0;">Поиск</button>
+                                            </div>
 
-                                        <div class=" " style="margin-top:10px;">
-                                            <button type="submit" class="btn btn-success">Фильтровать</button>
-                                        </div>
-
-                                    </form>
+                                        </form>
                                 </div>
                             </div>
 
@@ -124,7 +121,7 @@
                                  {{$item->amount}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($item->account->currency_id)}}
                             </div>
                             <div class="table__list_col table__list_col-right">
-                                <a href="{{route('transaction.info', $item->id)}}">  {{$item->payment->recipier_name ?? $item->description}}</a>
+                                <a href="{{route('transaction.info', $item->id)}}">  {{$item->description}}</a>
                             </div>
 
                             <div class="table__list_col table__list_col-right">
@@ -145,11 +142,10 @@
 
                     </div>
 
-
-
-
                     <div class="pagination pagination_offset">
-                        {{ $transactions->links() }}
+                        <p>Cтраница {{ $transactions->currentPage()}} из {{ $transactions->count() }}:</p>
+
+			            {{ $transactions->appends(request()->except('page'))->links() }}
                     </div>
                 </div>
 

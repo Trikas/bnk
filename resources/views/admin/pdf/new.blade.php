@@ -1,4 +1,7 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <style>
+    @page { margin-top: 10px; margin-bottom: 10px; }
+    body { margin-top: 10px; margin-bottom: 10px;}
     body { font-family: DejaVu Sans, sans-serif; width: 700px; }
     .title-div{
         width:700px;
@@ -25,7 +28,10 @@
         margin-left: 2px;
         margin-bottom: 0;
         margin-top: 2px;
-        font-size: 12px;
+        font-size: 9pt;
+    }
+    .left-div p{
+        margin-top: 7px;
     }
     .left-div p span{
         font-weight: bold;
@@ -37,10 +43,11 @@
     }
 
     #transact tr th{
-        font-size: 12px;
-        font-weight: normal;
+        font-size: 10px;
+        font-weight: bold;
     }
     #transact tr td{
+        font-size: 10pt;
         margin-bottom: 10px;
     }
 
@@ -57,8 +64,9 @@
         float: left;
         color:white;
         text-align: center;
-        margin: 0 0px;
-        font-size: 13px;
+        margin: 0 0;
+        font-size: 7pt;
+        font-weight: bold;
     }
     .t-title div:nth-child(1), .mtable-cont .rows div:nth-child(1){ width: 85px; }
     .t-title div:nth-child(2), .mtable-cont .rows div:nth-child(2){ width: 185px; }
@@ -66,6 +74,10 @@
     .t-title div:nth-child(4), .mtable-cont .rows div:nth-child(4){ width: 85px; }
     .t-title div:nth-child(5), .mtable-cont .rows div:nth-child(5){ width: 85px; }
     .t-title div:nth-child(6), .mtable-cont .rows div:nth-child(6){ width: 85px; }
+
+    .mtable-cont .rows div:nth-child(4){ text-align: right; }
+    .mtable-cont .rows div:nth-child(5){ text-align: right; }
+    .mtable-cont .rows div:nth-child(6){ text-align: right; }
 
     .mtable-cont .rows{
         width: 100%;
@@ -78,16 +90,14 @@
         float: left;
         text-align: center;
         overflow: hidden;
-        font-size: 10px;
+        font-size: 10pt;
+        font-weight: bold;
     }
-</style>
-<style>
+
     .page-break {
         page-break-after: always;
     }
-</style>
 
-<style>
     .footer-blue p{
         color:white;
         font-size: 9px;
@@ -100,15 +110,19 @@
         height: 65px;
         text-align: center;
     }
+
+    td{
+        vertical-align: top;
+    }
 </style>
 <body>
 @include('admin.pdf.pdf-top')
 
 <div class="mtable-cont" style="position:relative;">
     @foreach($trans as $item)
-        @if($loop->iteration % 6 == 0)
+        @if($loop->iteration % 9 == 0)
             <br><br>
-            <div class="footer-blue" style="position: absolute; bottom:20px;">
+            <div class="footer-blue" style="position: absolute; bottom:0;">
                 <p style="padding-top: 7px;">AstroBank Limited - HEAD OFFICE</p>
                 <p>1 Spyrou Kyprianou Avenue, 1065 Nicosia, P.O.Box 25700, 1393 Nicosia Cyprus</p>
                 <p>BIC: PIRBCY2N, E-mail: info@astrobank.com, Web site: http://www.astrobank.com</p>
@@ -118,21 +132,21 @@
             @include('admin.pdf.pdf-top')
         @endif
 
-            <table border="0" style="font-size:12px; text-align: center">
-                <tr>
+            <table border="0" style="text-align: center; font-size: 7pt; font-weight: 700;     width: 100%;">
+                <tr style="text-align: left">
                     <td style="width: 85px;">{{$item->created_at->format('d.m.Y') ?? 'Unknown'}}</td>
-                    <td style="overflow:hidden; width: 185px; height: 50px">{{$item->description  ?? 'Unknown'}}</td>
-                    <td style="width:145px;">{{$item->created_at->format('d.m.Y') ?? 'Unknown'}}</td>
-                    <td style="width: 80px">&nbsp;@if($item->type == 'OUT') {{$item->amount}} @endif</td>
-                    <td style="width: 80px">&nbsp;@if($item->type == 'IN') {{$item->amount}} @endif</td>
-                    <td style="width: 80px">{{$item->balance}}</td>
+                    <td style="overflow:hidden; width: 185px; height: 50px;">{{$item->description  ?? 'Unknown'}}</td>
+                    <td style="width:145px; text-align: center;">{{$item->created_at->format('d.m.Y') ?? 'Unknown'}}</td>
+                    <td style="width: 80px; text-align: right;">&nbsp;@if($item->type == 'OUT') {{$item->amount}} @endif</td>
+                    <td style="width: 80px; text-align: right;">&nbsp;@if($item->type == 'IN') {{$item->amount}} @endif</td>
+                    <td style="width: 80px;  text-align: right;">{{$item->balance}}</td>
                 </tr>
             </table>
 
 
         @if($loop->last)
             <p ><div style="border: 2px solid #000" class="rows">
-                <div style="width: 550px; text-align: left; font-weight: bold; font-size: 14px">Выписка о текущем состоянии</div>
+                <div style="width: 515px; text-align: left; font-weight: bold; font-size: 14px">Выписка о текущем состоянии</div>
                 <div style=" font-weight: bold; font-size: 14px">{{$item->balance}}</div>
             </div>
             </p>

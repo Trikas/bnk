@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="main-content main-content_height" style="height: 600px; overflow: scroll;">
+    <div class="main-content main-content_height" >
         <div class="row">
             <div class="col col--lg-12">
 
@@ -69,23 +69,19 @@
                                 Критерий поиска:
                             </div>
                             <div class="price price_row">
-                                <form autocomplete="off" action="/transactions" method="get" id="from-form">
-                                <div class="price-input">
-                                    По фразе: <input minlength="2" class="myInput"name="search" @isset($search) value="{{$search}}" @endisset  placeholder="EB1910181528245 ">
-                                </div>
-                                <div class="price-input">
-                                    C: <input class="myInput datepicker" name="from_date" @isset($from_date) value="{{$from_date}}" @endisset  placeholder="30.03.2019">
-                                </div>
-                                <div class="price-input">
-                                    По: <input class="myInput datepicker" name="to_date" @isset($to_date) value="{{$to_date}}" @endisset placeholder="19.02.2020">
-                                </div>
-
-                                    <div class=" " style="margin-top:10px;">
-                                        <button type="submit" class="btn btn-success">Фильтровать</button>
+                                <form autocomplete="off" action="/transactions" method="get" id="from-form" style="display: flex; justify-content: center;     align-items: center;">
+                                    <div class="price-input">
+                                        C: <input class="myInput datepicker" utocomplete="off" name="from_date" @isset($from_date) value="{{$from_date}}" @endisset  placeholder="30.04.2019"> <img src="/images/cal.png" style="margin-bottom: -4px;">
+                                    </div>
+                                    <div class="price-input">
+                                        По: <input class="myInput datepicker" name="to_date" @isset($to_date) value="{{$to_date}}" @endisset placeholder="20.03.2020"> <img src="/images/cal.png" style=" margin-bottom: -4px;">
+                                    </div>
+                                    <input type="hidden" name="acc" value="{{$account->id}}">
+                                    <div class=" ">
+                                        <button type="submit" class="btn btn-success"  style="margin-bottom: 0;">Поиск</button>
                                     </div>
 
-                                </form>
-                            </div>
+                                </form>                            </div>
                         </div>
 
 
@@ -145,7 +141,21 @@
                     </div>
 
                     <div class="pagination pagination_offset">
-                        {{$transactions->links()}}
+                        {{$transactions->appends(request()->input())->links()}}
+
+                        <!--
+                        <p>Cтраница {{ $transactions->currentPage() }}</p>
+@if ($transactions->hasMorePages())
+	:&nbsp; <a href="{{ request()->fullUrlWithQuery(['page' => $transactions->currentPage() + 1]) }}">Далее</a>
+@endif
+-->
+
+<!--
+                        <p>Cтраница {{ $transactions->currentPage()}} из {{ $transactions->count() }}:</p>
+
+                        {{ $transactions->appends(request()->except('page'))->links() }}
+-->
+
                     </div>
                 </div>
                 <input type="hidden" value="" id="num_id">

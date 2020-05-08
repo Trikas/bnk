@@ -106,9 +106,9 @@
 
     <div class="mtable-cont" style="position:relative;">
         @foreach($trans as $item)
-            @if($loop->iteration % 9 == 0)
+            @if($loop->iteration % 12 == 0)
                 <br><br>
-            <div class="footer-blue" style="position: absolute; bottom:100px;">
+            <div class="footer-blue" style="position: absolute; bottom:50px;">
                     <p style="padding-top: 7px;">AstroBank Limited - HEAD OFFICE</p>
                     <p>1 Spyrou Kyprianou Avenue, 1065 Nicosia, P.O.Box 25700, 1393 Nicosia Cyprus</p>
                     <p>BIC: PIRBCY2N, E-mail: info@astrobank.com, Web site: http://www.astrobank.com</p>

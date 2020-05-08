@@ -11,12 +11,12 @@
                     <span class="bold">JETLUX LTD</span>
                 </div>
                 <div class="main__last-data">
-                    @isset($activities)
+
                     <span>Последний визит (дата и время)</span>
                     <span class="bold">
-                            {{$activities['created_at'] ?? ''}}
+                            {{$lastVisit}}
                     </span>
-                    @endisset
+
 
                 </div>
 

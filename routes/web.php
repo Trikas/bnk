@@ -3,6 +3,7 @@
 Route::get('/login', 'HomeController@index');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/forgot/{email}', 'Auth\ForgotPasswordController@forgot');
 
 
 Route::group(['middleware' => 'auth'], function(){
@@ -24,6 +25,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::any('transactions/in', 'Admin\TransactionController@getIn')->name('transaction.in');
     Route::any('transactions/out', 'Admin\TransactionController@getOut')->name('transaction.out');
     Route::get('transactions/apply/{id}', 'Admin\TransactionController@apply')->name('transaction.apply');
+    Route::get('transactions/status/{status}/{id}', 'Admin\TransactionController@changeStatus')->name('transaction.status');
 
     Route::any('transactions/incoming', 'Admin\TransactionController@adminIn')->name('transaction.income');
 
@@ -51,12 +53,13 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('statement', 'Admin\StatementController@post')->name('statement.post');
 
     Route::get('services', 'Admin\ServiceController@index')->name('services.index');
+    Route::get('register', 'Admin\ServiceController@register')->name('services.register');
 
     Route::any('logs', 'LogController@index')->name('logs.index');
 
 
 
-    Route::any('test', 'TestController@index')->name('test');
+
     Route::get('test2', 'Test2Controller@index');
 
     # Export
@@ -67,8 +70,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('export/accounts', 'Admin\ExportController@accounts')->name('export.accounts');
 
-
-
-
-
 });
+
+    Route::any('test', 'TestController@index')->name('test');
+    Route::view('done', 'admin.pages.payment.done')->name('done');
+

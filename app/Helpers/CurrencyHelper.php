@@ -26,10 +26,16 @@ class CurrencyHelper{
     public static $comision_1_amount = 40;
     public static $comision_2_amount = 80;
     public static $comision_3_amount = 0;
-    public static $comision_4_amount = 110;
+    public static $comision_4_amount = 130;
 
-    public static $status_4 = 'Создан';
-    public static $status_1 = 'Выполнен';
+
+    public static $comision_1_amount_eu = 30;
+    public static $comision_2_amount_eu = 60;
+    public static $comision_3_amount_eu = 0;
+    public static $comision_4_amount_eu = 100;
+
+    public static $status_4 = 'В обработке';
+    public static $status_1 = 'Завершен';
     public static $status_2 = 'В обработке';
     public static $status_3 = 'Отменен';
 
@@ -45,11 +51,13 @@ class CurrencyHelper{
 
     public static function Calc($amount, $from_currency, $to_currency)
     {
+        $amount = self::makeAmountInt($amount);
         return (  $amount /  self::$$from_currency ) *  self::$$to_currency;
     }
 
     public static function Calculate($amount, $from_currency, $to_currency)
     {
+        $amount = self::makeAmountInt($amount);
         $from_currency = strtolower( self::getCurrencyCode($from_currency) );
         $to_currency = strtolower( self::getCurrencyCode($to_currency) );
         return self::Calc($amount, $from_currency, $to_currency);
@@ -124,11 +132,158 @@ class CurrencyHelper{
         return 'Unknow';
     }
 
-    public static function getComission($type, $amout)
-    {
-        $type = (int) $type;
 
-        if($amout < 5000){
+
+    public static function getComission($type, $amout, $val = 1)
+    {
+        // очистить данные
+        $type = (int) $type;
+        $amount = str_replace(',','', $amout);
+        $amount = str_replace('.','', $amount);
+        $amount = ((int) $amount) / 100;
+
+        //
+
+        if($val == "1"){
+            return self::com_eur($type, $amount);
+        }else{
+            return self::com_dollars($type, $amount);
+        }
+    }
+
+    public static function com_eur($type, $amount)
+    {
+        /*
+         *  public static $comision_1_amount = 40;
+            public static $comision_2_amount = 80;
+            public static $comision_3_amount = 0;
+            public static $comision_4_amount = 130;
+         */
+
+        if($amount <= 1000){
+            // 35
+            if($type === 1)
+                return 15;
+
+            if($type === 2)
+                return 30;
+
+            if($type === 3)
+                return 0;
+
+
+        }elseif($amount > 1000 && $amount <= 5000){
+
+            // 55
+            if($type === 1)
+                return 23;
+
+            if($type === 2)
+                return 45;
+
+            if($type === 3)
+                return 0;
+
+        }elseif ($amount > 5001 && $amount <= 10000){
+
+            // 35
+            if($type === 1)
+                return 30;
+
+            if($type === 2)
+                return 60;
+
+            if($type === 3)
+                return 0;
+
+        }elseif($amount > 10000){
+            if($type === 1)
+                return 55;
+
+            if($type === 2)
+                return 110;
+
+            if($type === 3)
+                return 0;
+        }
+
+        /*
+        if($amount < 5000){
+            if($type === 1)
+                return self::$comision_1_amount_eu;
+
+            if($type === 2)
+                return self::$comision_2_amount_eu;
+
+            if($type === 3)
+                return self::$comision_3_amount_eu;
+        }else{
+
+            if($type === 2)
+                return self::$comision_4_amount_eu;
+
+            if($type === 1)
+                return (self::$comision_4_amount_eu / 2);
+
+            if($type === 3)
+                return self::$comision_3_amount_eu;
+
+        }
+        */
+    }
+
+    public static function com_dollars($type, $amount)
+    {
+        if($amount <= 1000){
+            // 35
+            if($type === 1)
+                return 17;
+
+            if($type === 2)
+                return 35;
+
+            if($type === 3)
+                return 0;
+
+
+        }elseif($amount > 1000 && $amount <= 5000){
+
+            // 55
+            if($type === 1)
+                return 27;
+
+            if($type === 2)
+                return 55;
+
+            if($type === 3)
+                return 0;
+
+        }elseif ($amount > 5001 && $amount <= 10000){
+
+            // 35
+            if($type === 1)
+                return 40;
+
+            if($type === 2)
+                return 80;
+
+            if($type === 3)
+                return 0;
+
+        }elseif($amount > 10000){
+            if($type === 1)
+                return 65;
+
+            if($type === 2)
+                return 130;
+
+            if($type === 3)
+                return 0;
+        }
+
+
+        /*
+        if($amount < 5000){
             if($type === 1)
                 return self::$comision_1_amount;
 
@@ -139,16 +294,23 @@ class CurrencyHelper{
                 return self::$comision_3_amount;
         }else{
 
-            if($type === 1)
+            if($type === 2)
                 return self::$comision_4_amount;
 
-            if($type === 2)
+            if($type === 1)
                 return (self::$comision_4_amount / 2);
 
             if($type === 3)
                 return self::$comision_3_amount;
 
         }
+
+        */
+    }
+
+    public static function makeAmountInt($amount)
+    {
+        return str_replace(',', '', $amount);
     }
 
 

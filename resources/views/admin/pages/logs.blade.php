@@ -3,7 +3,7 @@
 @section('title') Логи @stop
 
 @section('content')
-    <div class="main-content main-content_height portfolio" style="height:600px; overflow: scroll ">
+    <div class="main-content main-content_height portfolio">
         <div class="row">
             <div class="col col--lg-12">
                 <div class="overview__line">

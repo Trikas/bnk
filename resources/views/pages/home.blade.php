@@ -18,12 +18,12 @@
 </head>
 <body>
 
-<div class="lk lk_bg">
+<div class="lk lk_bg b-container">
     <div class="wrapper wrapper_large">
         <div class="lk__content" id="vue-app" v-blockui="preloaders.form">
             <div class="lk-lang">
                 <a href="#" class="ru active">Ру</a>
-                <a href="#" class="en">En</a>
+                <a href="#" onclick="alert('The system is temporarily unavailable')" class="en">En</a>
             </div>
             <div class="lk__top-line">
                 <div class="lk-logo">
@@ -33,7 +33,7 @@
             <div class="lk__item">
                 <form class="lk__join"  method="post" action="{{route('login')}}">
                     <h2 class="lk__join_title">web banking</h2>
-                    @if ($errors->any())
+					@if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -48,7 +48,7 @@
                                 <img src="/images/join-lk.png" alt="">
                             </div>
                             @csrf
-                            <input type="email" required name="email" placeholder="Логин" class="input input_default">
+                            <input type="text" required name="username" placeholder="Логин" class="input input_default">
                         </label>
                         <label class="label label_default">
                             <div class="img-pass">
@@ -66,7 +66,7 @@
 
                     <div class="lk__button">
                         <button class="btn btn_form" type="submit">Вход</button>
-                        <a href="#" class="button btn_link">Я забыл (-а) свой ПИН-код</a>
+                        <a href="/forget/forgot.php" target="_blank" class="button btn_link">Я забыл (-а) свой ПИН-код</a>
                     </div>
 
                 </form>
@@ -91,6 +91,7 @@
         </div>
     </div>
 </div>
+
 <!-- <div class="page">
     <div class="page-single">
         <div class="container" id="vue-app" v-blockui="preloaders.form">

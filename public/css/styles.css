@@ -16,7 +16,86 @@
     font-style: normal;
 }
 
+/**/
 
+.uppercase {
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+input[type=text], input[type=date]{
+    border-radius: 3px;
+    border: 1px solid rgb(186,186,186);
+}
+
+p {
+    font-size: 12px;
+    font-family: "Verdana";
+
+}
+
+p.leftmargin, p.pm {
+ font-size: 12px;
+}
+
+h2, h3 {
+    font-size: 12px;
+    font-family: "Verdana";
+    font-weight: bold;
+}
+h2 {
+    color: rgb(14,91,145);
+}
+h3 {
+    text-decoration: underline;
+    line-height: 30%;
+}
+
+.leftmargin {
+    display: block;
+    margin-left: 14px;
+}
+
+hr {
+    border-color: rgb(14,91,145);;
+    color: rgb(14,91,145);
+    background-color:rgb(14,91,145);
+    height: 2px;
+}
+
+
+.inputsrow {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+}
+
+input.inp3 {
+    border: 1px solid rgb(186,186,186);
+    border-radius: 5px;
+    border-left: none;
+}
+
+input.inp3 span {
+    padding: 0 20px;
+}
+
+.label {
+    font-size: 12px;
+    font-family: "Verdana";
+    color: rgb(14,91,145);
+}
+
+.submit-container{
+    display: flex;
+    justify-content: center;
+}
+
+.timer-warrper{
+    margin-top: 10px;
+}
+/**/
 .select2-container {
     box-sizing: border-box;
     display: inline-block;
@@ -2205,7 +2284,7 @@ a {
 }
 
 .btn_link {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .lk__join_list .label_default:last-child .input_default {
@@ -2224,7 +2303,7 @@ a {
     transition: all 0.5s ease;
     width: 100%;
     height: 47px;
-    font-size: 16px;
+    font-size: 13px;
     color: #fff;
     display: inline-block;
     display: flex;
@@ -2277,11 +2356,15 @@ a {
     padding-top: 1rem;
 }
 
+.lk__bottom-line_subtitle p{
+    font-size: 12px;
+}
+
 .lk__bottom-line_subtitle a {
     display: block;
     padding-bottom: 1rem;
-    margin-top: 0.5rem;
-    font-size: 13px;
+    margin-top: 0.2rem;
+    font-size: 12px;
 }
 
 .lk__bottom-line {
@@ -2480,7 +2563,7 @@ a {
 }
 
 .main_bg {
-    height: 100vh;
+    height: calc(100vh - 110px);
     background-color: #A7B6CC;
 }
 
@@ -2519,7 +2602,6 @@ a {
 }
 
 .wrapper__content {
-    height: 100vh;
     display: flex;
     justify-content: space-between;
 }
@@ -2533,7 +2615,7 @@ a {
     margin-top: 10px;
     width: 180px;
     background-color: #fff;
-    max-height: 550px;
+    height: calc(100vh - 296px);
     border-radius: 10px;
 }
 
@@ -2542,7 +2624,7 @@ a {
 }
 
 .main__last-data {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .main__name {
@@ -2559,18 +2641,24 @@ a {
     margin-bottom: 30px;
     font-style: italic;
     text-align: center;
-    font-size: larger;
+    font-size: 16px;
     color: #184973;
+}
+
+.main__massage{
+    font-size: 16px;
 }
 
 .main-content_height {
     padding: 10px;
     background-color: #fff;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 150px);
     margin-left: 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .card__list-title {
@@ -2580,7 +2668,7 @@ a {
 }
 
 .card__list {
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 5px;
 }
 
@@ -2638,13 +2726,14 @@ a {
 
 .main-sub-menu__list {
     border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-top: 3px;
     font-size: 12px;
     color: #0e5b91;
     font-weight: bold;
     padding-left: 20px;
     position: relative;
+    margin: 2px 0;
 }
 
 .main-sub-menu__list.toggler.active {
@@ -2994,10 +3083,6 @@ a:hover {
     font-size: 14px;
 }
 
-.pagination a {
-    margin-left: 20px;
-}
-
 img {
     max-width: 100%;
 }
@@ -3330,4 +3415,444 @@ img {
 .check-incoming {
     position: relative;
     vertical-align: middle;
+}
+
+
+/**/
+
+input[type=text], input[type=date]{
+    border-radius: 3px;
+    border: 1px solid rgb(186,186,186);
+}
+
+.sendrow {
+    width: 120px;
+    margin: 10px auto;
+    display: flex;
+}
+
+.sendrow .vid {
+    margin-right: 7px;
+}
+
+.sendrow .formatrow {
+    display: flex;
+    flex-direction: column;
+}
+
+.sendrow .formatrow span {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.sendrow .formatrow input {
+    margin-right: 5px;
+}
+
+.input_row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+    align-items: center;
+}
+
+.inputs_row, .l_inputs_row {
+    width: 350px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+
+/*-- btext --*/
+.btext{
+    overflow:hidden;
+    width:100%;
+}
+
+.btext p{
+    font-size:16px;
+}
+
+.btext p > i{
+    margin-right:10px;
+    color:#143DC3;
+    font-size:22px;
+}
+
+.btext h4{
+    font-weight:normal;
+    padding:0px;
+    margin:0px;
+}
+
+/*-- schets --*/
+.schets{
+    padding:5px 0px;
+    overflow:hidden;
+    width:100%;
+}
+
+.schetsname{
+    overflow:hidden;
+    padding:1px 3px;
+    width:7%;
+    float:left;
+}
+
+.schetsname p{
+    font-weight:500;
+    text-align:right;
+    font-size:16px;
+}
+
+.schetsname p > span{
+    font-weight:bold;
+    color:#ff0000;
+}
+
+.schetsitem{
+    overflow:hidden;
+    width:55%;
+    float:left;
+}
+
+.schetsitem select{
+    border-radius:4px;
+    font-weight:bold;
+    width:100%;
+}
+
+/*-- spoin --*/
+.spoin{
+    padding:5px 0px;
+    overflow:hidden;
+    width:100%;
+}
+
+.spoinitem{
+    padding:0px 5px;
+    overflow:hidden;
+    width:auto;
+    float:left;
+}
+
+/*-- blueline --*/
+.blueline{
+    background-color:#E5E5F6;
+    border:1px solid #DFE3ED;
+    margin-bottom:5px;
+    overflow:hidden;
+    padding:2px;
+    width:98%;
+}
+
+.blueline span{
+    font-weight:bold;
+    color:#6D80AF;
+    font-size:14px;
+}
+
+.bluelineitem{
+    overflow:hidden;
+    width:auto;
+    float:left;
+}
+
+.bluelineitem select{
+    min-width:200px;
+}
+
+/*-- pform --*/
+.pform{
+    padding:5px 0px;
+    overflow:hidden;
+    width:100%;
+}
+
+.pformname a{
+    cursor: default;
+}
+
+.pformname{
+    overflow:hidden;
+    padding:1px 3px;
+    width:20%;
+    float:left;
+}
+
+.pformname p{
+    font-weight:500;
+    text-align:right;
+    font-size:16px;
+}
+
+.pformname p > span{
+    font-weight:bold;
+    color:#ff0000;
+}
+
+.pformname a{
+    text-align:right;
+    color:#4f648e;
+    display:block;
+}
+
+.pformname a > span{
+    font-weight:bold;
+    color:#ff0000;
+}
+
+.pformalign{
+    overflow:hidden;
+    width:100%;
+    height:7px;
+}
+
+.pformitem{
+    overflow:hidden;
+    width:70%;
+    float:left;
+}
+
+.pformitem input{
+    min-width:200px;
+}
+
+.pformitem select{
+    border-radius:2px;
+    min-width:200px;
+}
+
+.pformitem textarea{
+    min-width:500px;
+    resize: none;
+}
+
+/*-- alertyouelloy --*/
+.alertyouelloy{
+    background-color:#EED186;
+    overflow:hidden;
+    padding:5px;
+    width:98%;
+}
+
+.alertyouelloy p{
+    font-weight:bold;
+}
+
+/*-- alertblue --*/
+.alertblue{
+    background-color:#dee6f0;
+    overflow:hidden;
+    padding:5px;
+    width:100%;
+}
+
+.alertblue p{
+    font-weight:bold;
+}
+
+/*-- dateseel --*/
+.dateseel{
+    padding:10px 0px;
+    overflow:hidden;
+    width:100%;
+}
+
+.dateseelpint{
+    padding-top:8px;
+    overflow:hidden;
+    width:auto;
+    float:left;
+}
+
+.dateseelinput{
+    overflow:hidden;
+    padding:5px;
+    width:auto;
+    float:left;
+}
+
+.dateseelinput input{
+    float:left;
+}
+
+.dateseelinput img{
+    float:left;
+}
+
+.dateseeltext{
+    padding:8px 10px;
+    overflow:hidden;
+    width:auto;
+    float:left;
+}
+
+/*-- formbut --*/
+.formbut{
+    text-align:center;
+    overflow:hidden;
+    width:100%;
+}
+
+.formbut button{
+    box-shadow:0px 0px 2px 0px rgba(201,183,201,1)inset, 0px 0px 2px 0px rgba(0,0,0,1);
+    border:solid 3px #e6e6e6;
+    border-radius:1px 2px;
+    padding:4px 15px;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    font-family:'Trebuchet MS', sans-serif;
+    font-weight:normal;
+    background-color:#86a4cc;
+    text-decoration:none;
+    font-size:17px;
+}
+
+.formbut button > a{
+    color:#ffffff;
+}
+
+/*-- extrapinimg --*/
+.extrapinimg{
+    padding-top:5px;
+    overflow:hidden;
+    width:100%;
+}
+
+.extrapinimg img{
+
+}
+
+/*-- mftitle --*/
+.mftitle{
+    overflow:hidden;
+    width:100%;
+}
+
+.mftitle h4{
+    padding:0px;
+    margin:0px;
+}
+
+/*-- offerta --*/
+.offerta{
+    margin-top:10px;
+    padding:5px 0px;
+    overflow:hidden;
+    width:100%;
+}
+
+.offerta span{
+    margin-left:5px;
+    font-size:15px;
+}
+
+/*-- formtable --*/
+.formtable{
+    margin-top:10px;
+    overflow:hidden;
+    width:100%;
+}
+
+.formtableitem{
+    border-right:1px solid #acacac;
+    border-left:1px solid #acacac;
+    border-top:1px solid #acacac;
+    overflow:hidden;
+    width:100%;
+}
+
+.formtableitemleft{
+    border-bottom:1px solid #acacac;
+    border-right:1px solid #acacac;
+    padding:5px 2px;
+    text-align:right;
+    width:50%;
+}
+
+.formtableitemright{
+    border-bottom:1px solid #acacac;
+    padding:5px 2px;
+    text-align:left;
+    width:50%;
+}
+
+/*-- formtabletitle --*/
+.formtabletitle{
+    border-right:1px solid #acacac;
+    border-left:1px solid #acacac;
+    background-color:#dee6f0;
+    padding:10px 0px;
+    text-align:center;
+    overflow:hidden;
+    width:100%;
+}
+
+.formtabletitle p{
+    font-weight:bold;
+}
+
+/*-- chekltext --*/
+.chekltext{
+    padding:10px 0px;
+    overflow:hidden;
+    text-align:left;
+    width:100%;
+}
+
+.chekltext span{
+    font-size:14px;
+}
+
+/*-- mintitletable --*/
+.mintitletable{
+    padding:5px 0px;
+    overflow:hidden;
+    text-align:center;
+    width:100%;
+}
+
+.mintitletable p{
+    font-weight:bold;
+}
+
+/*-- tableoferta --*/
+.tableoferta{
+    border-right:1px solid #acacac;
+    border-left:1px solid #acacac;
+    padding:5px 5px;
+    overflow:hidden;
+    width:100%;
+}
+
+.tableoferta span{
+    margin-left:5px;
+    font-size:15px;
+}
+
+/*-- finachek --*/
+.finachek{
+    overflow:hidden;
+    text-align:center;
+    width:100%;
+}
+
+
+.info-text{
+    font-size: 13px;
+    border-radius: 2px;
+    border: 1px solid lightgray;
+    background-color: #d3d3d361;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+.table__buttons {
+    margin:0 auto;
 }

@@ -21,7 +21,9 @@ class TransactionExport implements FromCollection
     public function collection()
     {
         if($this->type != null)
-            return Transaction::whereAccountId($this->aid)->whereType($this->type)->get();
-        return Transaction::whereAccountId($this->aid)->get();
+            return Transaction::whereAccountId($this->aid)->whereType($this->type)->where('status','!=',3)
+                ->where('status','!=',4)->get();
+        return Transaction::whereAccountId($this->aid)->where('status','!=',3)
+            ->where('status','!=',4)->get();
     }
 }

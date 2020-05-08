@@ -44,34 +44,64 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+	/**
+	 * Get the needed authorization credentials from the request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	protected function credentials(Request $request)
+	{
+	    return $request->only($this->username(), 'password');
+	}
+
+	/**
+	 * Validate the user login request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return void
+	 */
+	protected function validateLogin(Request $request)
+	{
+	    $this->validate($request, [
+		$this->username() => 'required|string',
+		'password' => 'required|string',
+	    ]);
+	}
+
+    public function username()
+    {
+        return 'username';
+    }
+
     public function login(LoginRequest $request)
     {
-        if(! $this->checkIfAdmin($request->email)){
+        if(! $this->checkIfAdmin($request->username)){
             // Check user's pin
             if( $pin = Pin::wherePin($request->pin)->first() ){
                 $pin->delete();
             }else{
-                $this->addLogPinError($request->email);
-                return back()->withErrors(['Пин код устарел. Обратитесь к администратору за получением нового ПИН-а']);
+                $this->addLogPinError($request->username);
+                return back()->withErrors(['Пин код устарел. Введите новый ПИН код.']);
             }
         }
 
-        $cred = $request->only('email', 'password');
+        $cred = $request->only('username', 'password');
         if( Auth::attempt($cred) ){
             $this->activity(Auth::user());
             $this->addLog(Auth::id());
             return redirect($this->redirectTo);
         }
 
-        $this->passwordErrorLog($request->email);
+        $this->passwordErrorLog($request->username);
 
         return back()->withErrors('Please, Check Email or Password');
 
     }
 
-    public function checkIfAdmin($email)
+    public function checkIfAdmin($username)
     {
-        $temp_user = User::whereEmail($email)->firstOrFail();
+        $temp_user = User::where(['username' => $username])->firstOrFail();
         if($temp_user->role == 'admin')
             return true;
         return false;
@@ -82,17 +112,17 @@ class LoginController extends Controller
         $log = _Helper::addLog($user_id, 'Вход пользователя в систему');
     }
 
-    public function addLogPinError($email)
+    public function addLogPinError($username)
     {
-        if( $user = User::whereEmail($email)->first() )
+        if( $user = User::where(['username' => $username])->first() )
             $log = _Helper::addLog($user->id, 'Ошибка пин кода', 'Ошибка');
 
         return true;
     }
 
-    public function passwordErrorLog($email)
+    public function passwordErrorLog($username)
     {
-        if( $user = User::whereEmail($email)->first() ){
+        if( $user = User::where(['username' => $username])->first() ) {
             $log = _Helper::addLog($user->id, 'Неправильный пароль', 'Ошибка');
         }else{
             $log = _Helper::addLogWithoutUserId('Неправильный пароль для ' . $email);
@@ -106,7 +136,7 @@ class LoginController extends Controller
     {
         $act = new Activity();
         $act->user_id = $user->id;
-        $act->ip = $_SERVER['SERVER_ADDR'];
+        $act->ip = '92.24.24.24.24.2.4';
         $act->save();
         return;
     }

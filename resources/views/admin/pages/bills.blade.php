@@ -17,7 +17,6 @@
                         <div class="table__head_col">Счет</div>
                         <div class="table__head_col">Тип / Валюта</div>
                         <div class="table__head_col">Доступный остаток</div>
-                        <div class="table__head_col">Текущий баланс</div>
                     </div>
                     <form id="account_form_go" action="{{route('account.show')}}" method="post">
                         @csrf
@@ -33,9 +32,6 @@
                         <div class="table__list_col table__list_col-center">{{\App\Helpers\CurrencyHelper::getCurrency($item->currency_id)}}</div>
                         <div class="table__list_col table__list_col-right">
                             {{number_format($item->balance_current, 2, ',', ' ')}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($item->currency_id)}}
-                        </div>
-                        <div class="table__list_col table__list_col-right">
-                            <money-value :value="item.balance_available" :code="item.currency"></money-value>
                         </div>
                     </div>
                         @endforeach

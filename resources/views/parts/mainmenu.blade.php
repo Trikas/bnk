@@ -1,8 +1,8 @@
 <div class="main-menu">
     <div class="main-menu_col">
-        <a href="{{route('dashboard')}}" data-menu-id="dashboard" class="main-menu__list">Мой портфель</a>
-        <a href="{{route('page.transaction.about')}}" data-menu-id="remittances_index" class="main-menu__list">Денежный перевод</a>
-        <a href="{{route('services.index')}}" data-menu-id="services_index" class="main-menu__list">Услуги</a>
+        <a href="{{route('dashboard')}}" data-menu-id="dashboard" class="main-menu__list @if(Request::is('dashboard')|| Request::is('accounts*') || Request::is('statement*') || Request::is('statms*')) active @endif">Мой портфель</a>
+        <a href="{{route('page.transaction.about')}}" data-menu-id="remittances_index" class="main-menu__list @if(Request::is('transactions*') || Request::is('payment*')) active @endif">Денежный перевод</a>
+        <a href="{{route('services.index')}}" data-menu-id="services_index" class="main-menu__list @if(Request::is('services*') || Request::is('logs*') || Request::is('register*')) active @endif">Услуги</a>
     </div>
 
     <div class="main-menu_col main-menu__white main-sub-menu my-portfolio sub-menu-item" data-menu-parent="dashboard" style="display: none">
@@ -13,18 +13,25 @@
 
             <div class="toggler__content sub-menu-item">
                 <div class="menu-dropdown-col">
-                    <a data-menu-id="accounts_browse" href="" class="main-sub-menu__list">Счета</a>
-                    <a data-menu-id="transactions1" href="" class="main-sub-menu__list">Движение средств по счету</a>
-                    <a data-menu-id="undefined1" href="#" class="main-sub-menu__list">Выписка по счету по электронной почте</a>
-                    <a data-menu-id="undefined2" href="#" class="main-sub-menu__list">Выписка по электронной почте</a>
-                    <a data-menu-id="statements" href="" class="main-sub-menu__list">Выписка со счета</a>
+                    <a data-menu-id="accounts_browse" href="" class="main-sub-menu__list @if(Request::is('accounts/*')) active @endif">Счета</a>
+                    <a data-menu-id="transactions1" href="" class="main-sub-menu__list @if(Request::is('transactions/*')) active @endif">Движение средств по счету</a>
+                    <a data-menu-id="undefined1" href="#" class="main-sub-menu__list @if(Request::is('statement*')) active @endif">Выписка по счету по электронной почте</a>
+                    <a data-menu-id="undefined2" href="#" class="main-sub-menu__list @if(Request::is('transactions*')) active @endif">Выписка по электронной почте</a>
+                    <a data-menu-id="statements" href="" class="main-sub-menu__list @if(Request::is('payment/between*')) active @endif">Выписка со счета</a>
                 </div>
             </div>
         </div>
     </div>
 
+    @php
+        if(Request::is('services') || Request::is('logs*') || Request::is('register*')){
+                $slug = 'third';
+            }else{
+                $slug = 'first';
+            }
+    @endphp
     @section('menu')
-        {!! \App\Helpers\_Helper::getMenu() !!}
+        {!! \App\Helpers\_Helper::getMenu($slug ) !!}
     @show
     <style>
         .time-line{
@@ -39,7 +46,7 @@
         }
     </style>
     <div class="timer-warrper" style="position:relative; width:178px; height: 54px;background: #fff; border-radius: 10px;">
-        <div class="renew" style="opacity: 0;"><a href="#" id="ren" style="font-size: 10px; margin-left:5px;padding: 5px; 0 0 15px; text-decoration: underline">Обновить</a></div>
+        <div class="renew" style="opacity: 0; cursor: default"><a href="#" id="ren11111111" style="font-size: 10px; margin-left:5px;padding: 5px; cursor: default; text-decoration: underline">Обновить</a></div>
         <div class="ext" >выход через <span id="min">9</span>:<span id="sec">59</span></div>
         <div class="time-line" style="position: relative">
             <img id="timeline" src="/images/timer.png" alt="" style="position: absolute; left: 0px;">
@@ -55,7 +62,7 @@
 
             <div class="toggler__content sub-menu-item">
                 <div class="menu-dropdown-col">
-                    <a data-menu-id="undefined3" href="#" class="main-sub-menu__list">Между собственными счетами</a>
+                    <a data-menu-id="undefined3" href="#" class="main-sub-menu__list @if(Request::is('payment/between*')) active @endif">Между собственными счетами</a>
                     <a data-menu-id="undefined4" href="#" class="main-sub-menu__list">На счета третьих лиц</a>
                     <a data-menu-id="undefined5" href="#" class="main-sub-menu__list">Конверсионные платежи</a>
                 </div>

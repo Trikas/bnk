@@ -1,16 +1,16 @@
 
 <div class="left" style="float:left;">
-    <img style="width:165px; height:75px;" src="{{ public_path('images/logo5.png')}}" alt="ss">
-    <div style="font-weight: bold; font-size: 12px; margin-top:-20px">AstroBank Limited</div>
+    <img style="width:165px; height:75px; margin: 7px 0 20px 0;" src="{{ public_path('images/logo5.png')}}" alt="ss">
+    <div style="font-weight: bold; font-size: 8pt; margin-left: 10px;">AstroBank Limited</div>
     <br>
-    <div style="font-weight: bold; font-size: 12px">BIC: PIRBCY2N</div>
+    <div style="font-weight: bold; font-size: 8pt; margin-left: 10px; margin-top: -25px">BIC: PIRBCY2N</div>
 
 </div>
 
 <div class="right" style="float: right;">
-    <h2 style="font-weight: normal">Операции по счету</h2>
-    <div class="line" style="text-align: right; width: 235px;  font-size: 12px">С: {{ $data2['from_date']  }}</div>
-    <div class="line" style="text-align: right; width: 235px; font-size: 12px ">ПО: {{ $data2['to_date']  }}</div>
+    <h2 style="font-weight: normal; margin-top: 0; font-style: normal; font-size: 18pt;">Операции по счету</h2>
+    <div class="line" style="text-align: right; width: 235px;  font-size: 7pt">С: {{ $data2['from_date']  }}</div>
+    <div class="line" style="text-align: right; width: 235px; font-size: 7pt ">ПО: {{ $data2['to_date']  }}</div>
 </div>
 
 <div class="clear" style="clear: both"></div>
@@ -33,8 +33,16 @@
 
     <div class="right-div" >
         <div class="mc-1">
-            <p>Номер cчета:   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Тип </p>
-            <p style="font-size: 11px">{{$acc->number}}  &nbsp  &nbsp <span style="font-size: 11px;">COMMERCIAL CURRENT ACC {{\App\Helpers\CurrencyHelper::getCurrencyCode($acc->id)}} </span></p>
+            <table style="font-size: 9pt;">
+                <tr>
+                    <td style="width: 100px;">Номер cчета:</td>
+                    <td  style="">Тип:</td>
+                </tr>
+                <tr>
+                    <td  style="width: 100px; margin-top: -10px;">{{$acc->number}}</td>
+                    <td >COMMERCIAL CURRENT ACC {{\App\Helpers\CurrencyHelper::getCurrencyCode($acc->id)}}</td>
+                </tr>
+            </table>
             <br>
 
             <p>{{$acc->iban}}</p>
@@ -44,7 +52,7 @@
             </p><p>&nbsp;</p>
 
 
-            <p style="margin-top: -5px">JETLUX LTD [Основной владелец]</p>
+            <p >JETLUX LTD [Основной владелец]</p>
             <br>
 
 

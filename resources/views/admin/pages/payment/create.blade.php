@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class="main-content main-content_height" style="min-height: 700px; overflow: scroll">
+    <div class="main-content main-content_height" >
         <div class="row">
             <div class="col col--lg-12">
 

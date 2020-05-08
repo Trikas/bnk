@@ -15,6 +15,13 @@ $( document ).ready(function() {
         $('.put-me').val( $(this).val() );
     });
 
+     $('.gogobut').click(function(){
+         var v = $('#account_select222').val()
+         $('.put-me').val(v);
+
+         //alert(val( $('#account_select222').val());
+     });
+
 
     $('#account_select').change(function(){
         $('#account_select_form').submit();
@@ -125,6 +132,8 @@ $( document ).ready(function() {
 
 
 
+    var uri = window.location.pathname;
+    $('a[href="'+uri+'"]').addClass('active');
 
 
 

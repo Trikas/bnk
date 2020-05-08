@@ -11,4 +11,11 @@ class ServiceController extends Controller
     {
         return view('admin.pages.services');
     }
+
+
+    public function register()
+    {
+        return view('admin.pages.register');
+    }
+
 }

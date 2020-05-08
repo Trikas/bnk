@@ -1,0 +1,204 @@
+:root{
+	--blue:#007bff;
+	--indigo:#6610f2;
+	--purple:#6f42c1;
+	--pink:#e83e8c;
+	--red:#dc3545;
+	--orange:#fd7e14;
+	--yellow:#ffc107;
+	--green:#28a745;
+	--teal:#20c997;
+	--cyan:#17a2b8;
+	--white:#fff;
+	--gray:#6c757d;
+	--gray-dark:#343a40;
+	--primary:#007bff;
+	--secondary:#6c757d;
+	--success:#28a745;
+	--info:#17a2b8;
+	--warning:#ffc107;
+	--danger:#dc3545;
+	--light:#f8f9fa;
+	--dark:#343a40;
+	--breakpoint-xs:0;
+	--breakpoint-sm:576px;
+	--breakpoint-md:768px;
+	--breakpoint-lg:992px;
+	--breakpoint-xl:1200px;
+	--font-family-sans-serif:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-family-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after{
+	box-sizing:border-box;
+}
+
+html{
+	font-family:sans-serif;
+	line-height:1.15;
+	-webkit-text-size-adjust:100%;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+body{
+	margin:0;
+	font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	line-height:1.5;
+}
+
+p{
+	margin-top:0;
+	margin-bottom:1rem;
+}
+
+body{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:#BCC4C6 url(../img/bg.jpg) 50% 0 fixed;
+	font-size:13px;
+	color:#3C3C3C;
+	margin:0;
+}
+
+
+.container{
+	width:100%;
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+@media (min-width:576px){
+	.container{
+		max-width:540px;
+	}
+}
+
+@media (min-width:768px){
+	.container{
+		max-width:720px;
+	}
+}
+
+@media (min-width:992px){
+	.container{
+		max-width:960px;
+	}
+}
+
+@media (min-width:1200px){
+	.container{
+		max-width:1140px;
+	}
+}
+
+.item{
+	background-color:#ffffff;
+	margin-bottom:1px;
+	padding:10px 30px;
+	margin-top:-40px;
+	overflow:hidden;
+	width:100%;
+	z-index:1;
+}
+
+.itemlogo{
+	margin-bottom:10px;
+	padding-left:10px;
+	overflow:hidden;
+	width:100%;
+}
+
+.itemtitle{
+	border-bottom:1px solid #5D5D5D;
+	padding-bottom:10px;
+	overflow:hidden;
+	width:100%;
+}
+
+.itemtitle p{
+	line-height:30px;
+	font-size:20px;
+	margin:0px;
+}
+
+.itemtitle p > img{
+	margin-right:10px;
+	margin-left:10px;
+	margin-top:-5px;
+}
+
+.itemtext{
+	background:url(../img/bg2.jpg) repeat-x;
+	padding:15px 80px 30px 35px;
+	min-height:600px;
+	overflow:hidden;
+	width:100%;
+}
+
+.itemtext p{
+	color:#3C3C3C;
+}
+
+/*-- bottompanel --*/
+.bottompanel{
+	background-color:#ffffff;
+	padding:10px 30px;
+	overflow:hidden;
+	width:100%;
+}
+
+/*-- lang --*/
+.lang{
+	padding:0px 40px 10px 0px;
+	overflow:hidden;
+	width:100%;
+	z-index:2;
+}
+
+.lang a{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius:0px 0px 6px 5px;
+	background-color:#e0e0e0;
+	padding:20px 5px 5px 5px;
+	text-decoration:none;
+	margin-left:10px;
+	text-align:center;
+	font-size:15px;
+	color:#000000;
+	display:block;
+	width:35px;
+	float:right;
+	
+}
+
+.lang a:hover,.lang a:focus{
+	background-color:#203E77;
+	color:#ffffff;
+}
+
+.active{
+	padding:16px 5px 5px 5px!important;
+	background-color:#ffffff!important;
+	font-size:18px!important;
+}
+
+.active:hover,.active:focus{
+	padding:16px 5px 5px 5px!important;
+	background-color:#ffffff!important;
+	font-size:18px!important;
+	color:#000000!important;
+}
+
+
+
+
+
+
+
+
+
+
+

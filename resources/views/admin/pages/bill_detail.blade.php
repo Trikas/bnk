@@ -18,13 +18,13 @@
                             <div>
                                 <form id="account_select_form" action="{{route('account.show')}}" method="post">
                                     @csrf
-                                <select name="account" id="account_select">
-                                    @isset($accounts)
-                                        @foreach($accounts as $item)
-                                            <option @if($account->id === $item->id) selected @endif value="{{$item->id}}">{{$item->number}}  {{$item->iban}} {{$item->balance_current}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($item->currency_id)}}</option>
-                                        @endforeach
-                                    @endisset
-                                </select>
+                                    <select name="account" id="account_select">
+                                        @isset($accounts)
+                                            @foreach($accounts as $item)
+                                                <option @if($account->id === $item->id) selected @endif value="{{$item->id}}">{{$item->number}}  {{$item->iban}} {{$item->balance_current}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($item->currency_id)}}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
 
                                 </form>
                             </div>
@@ -57,23 +57,26 @@
                                 </div>
                             </div>
                         </div>
+                        @php
+                            $sym = \App\Helpers\CurrencyHelper::getCurrencyCode($account->currency_id);
+                        @endphp
                         <div class="card__list">
                             <div class="name">Доступный баланс:</div>
                             <div class="price">
                                 <div>
-                                   {{$account->balance_available_current}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($account->currency_id)}}
+                                    {{$account->balance_available_current}} {{\App\Helpers\CurrencyHelper::getCurrencyCode($account->currency_id)}}
                                 </div>
                             </div>
                         </div>
                         <div class="card__list" >
                             <div class="name">Исходящий остаток:</div>
-                            <div class="price">6 273,99 EUR</div>
+                            <div class="price">6 273,99 {{$sym}}</div>
                         </div>
                         <div class="card__list">
                             <div class="name">Наименьший остаток месяца:</div>
                             <div class="price">
                                 <div>
-
+                                    {{$tr_this_month->min('balance')}} {{$sym}}
                                 </div>
                             </div>
                         </div>
@@ -81,7 +84,7 @@
                             <div class="name">Средний остаток месяца:</div>
                             <div class="price">
                                 <div>
-
+                                    {{ number_format($tr_this_month->avg('balance'), 2, ',', ' ')}} {{$sym}}
                                 </div>
                             </div>
                         </div>
@@ -89,7 +92,7 @@
                             <div class="name">Входящий остаток текущего месяца:</div>
                             <div class="price">
                                 <div>
-                                    0,00
+                                    {{ number_format($tr_this_month->sum('balance'), 2, ',', ' ')}} {{$sym}}
                                 </div>
                             </div>
                         </div>
@@ -97,13 +100,13 @@
                             <div class="name">Входящий остаток последнего месяца:</div>
                             <div class="price">
                                 <div>
-                                    0,00
+                                    {{ number_format($tr_last_month->avg('balance'), 2, ',', ' ')}} {{$sym}}
                                 </div>
                             </div>
                         </div>
                         <div class="card__list" >
                             <div class="name">Просроченная задолжность:</div>
-                            <div class="price">0,00 EUR</div>
+                            <div class="price">0,00 {{$sym}}</div>
                         </div>
                         <div class="card__list card__list_offset" >
                             <div class="name">процентная ставка за превышение лимита:</div>
@@ -115,7 +118,11 @@
                         </div>
                         <div class="card__list" >
                             <div class="name">Дата последнего депозита:</div>
-                            <div class="price">9/1/2020</div>
+                            @isset($tr_this_month)
+                                @if(count($tr_this_month) > 0)
+                                    <div class="price">{{$tr_this_month->last()->created_at->format('d-m-Y') ?? ''}}</div>
+                                @endif
+                            @endisset
                         </div>
                         <!--
                         <div class="card__list" >

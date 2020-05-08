@@ -84,7 +84,8 @@
             <div class="wrapper__content">
                 @if(Auth::user()->role === 'admin')
                         <div class="main-menu_col">
-                            <a href="{{route('transaction.arhive')}}" data-menu-id="remittances_index" class="main-menu__list">Денежные переводы</a>
+                            <a href="/transactions/out" data-menu-id="remittances_index" class="main-menu__list">Денежные переводы</a>
+                            <a href="{{route('transaction.out')}}" data-menu-id="remittances_index" class="main-menu__list">Исходящие платежи</a>
                             <a href="{{route('transaction.in')}}" data-menu-id="remittances_index" class="main-menu__list">Входящие платежи</a>
                             <a href="{{route('payment.create')}}" data-menu-id="remittances_index" class="main-menu__list">Создать платеж</a>
                             <a href="{{route('pin')}}" data-menu-id="remittances_index" class="main-menu__list">Pin пользователей</a>
@@ -99,16 +100,19 @@
         </div>
     </main>
     <style>
+        .pagination{
+            display: flex;
+        }
         .pagination li{
             list-style: none;
-            font-size: 20px;
+            font-size: 15px;
+            margin-left: 10px;
         }
         .pagination li a{
             color:#86a4cc;
+            text-decoration: underline;
         }
-        li.page-item.active{
-            margin-left: 24px;
-        }
+
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             /* display: none; <- Crashes Chrome on hover */

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => "user",
+            'username' => "user",
             'last_name' => 'userof',
             'email' => "user@user.com",
             'role' => 'user',
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => "admin",
+            'username' => "admin",
             'last_name' => 'Adminovych',
             'email' => "admin@admin.com",
             'role' => 'admin',

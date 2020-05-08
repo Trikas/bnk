@@ -31,7 +31,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@server05.pp.ua')
+        return $this->from('astrowinbank@astrowinbank.com')
             ->subject('Statement of account')->view('mymail')
             ->with('data', $this->data)->attach($this->data['attach']);
     

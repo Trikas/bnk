@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="main-content main-content_height portfolio" style="height: 600px; overflow:scroll;">
+    <div class="main-content main-content_height portfolio" >
         <div class="row">
             <div class="col col--lg-12">
                 <div class="overview__line">
@@ -11,20 +11,24 @@
                 <div class="card card__content">
                     <div class="card">
                         <div class="card__list">
-                            <form autocomplete="off" action="{{route('transaction.out')}}" method="post" id="from-form">
+                            <form autocomplete="off" action="{{route('transaction.out')}}" method="post" id="from-form" style="display: flex; justify-content: center;     align-items: center;">
                                 @csrf
                                 <div class="price-input">
-                                    По фразе: <input minlength="2" class="myInput" name="search" @isset($search) value="{{$search}}" @endisset  placeholder="EB1910181528245 ">
+                                    <p>Информация, введенная за период</p>
                                 </div>
+                                {{--<div class="price-input">
+                                    По фразе: <input minlength="2" class="myInput"name="search" @isset($search) value="{{$search}}" @endisset  placeholder="EB1910181528245 ">
+                                </div>--}}
                                 <div class="price-input">
-                                    C: <input class="myInput datepicker" name="from_date" @isset($from_date) value="{{$from_date}}" @endisset  placeholder="30.02.2019">
+                                    C: <input class="myInput datepicker" utocomplete="off" name="from_date" @isset($from_date) value="{{$from_date}}"  @else {{date('d.m.Y')}} @endisset  placeholder="30.04.2019"> <img src="/images/cal.png" style=" margin-bottom: -4px;">
                                 </div>
+                                <input type="hidden" name="acc" value="{{$account->id ?? ''}}">
                                 <div class="price-input">
-                                    По: <input class="myInput datepicker" name="to_date" @isset($to_date) value="{{$to_date}}" @endisset placeholder="20.04.2020">
+                                    По: <input class="myInput datepicker" name="to_date" @isset($to_date) value="{{$to_date}}" @else {{date('d.m.Y')}} @endisset placeholder="20.03.2020"> <img src="/images/cal.png" style="margin-bottom: -4px;">
                                 </div>
 
-                                <div class=" " style="margin-top:10px;">
-                                    <button type="submit" class="btn btn-success">Фильтровать</button>
+                                <div class=" ">
+                                    <button type="submit" class="btn btn-success"  style="margin-bottom: 0;">Поиск</button>
                                 </div>
 
                             </form>
@@ -41,10 +45,15 @@
                                 <div class="table__head_col">Сумма зачисления</div>
                                 <div class="table__head_col">Тип платежа</div>
                                 <div class="table__head_col">Детали платежа</div>
-
+                                @if(Auth::user()->role === 'admin')
+                                <div class="table__head_col">Действия</div>
+                                @endif
                             </div>
+
                             <input type="hidden" value="" id="num_id">
                             @foreach($transactions as $item)
+                                @if($item->status == 1 or Auth::user()->role == 'admin')
+
                                 <div class="table__list ">
 
                                     <div class="table__list_col">
@@ -77,13 +86,30 @@
                                         <a href="{{route('transaction.info', $item->id)}}">
                                             {{$item->description}}</a>
                                     </div>
+                                    @if(Auth::user()->role === 'admin')
+                                    <div class="table__list_col table__list_col-center">
+                                        @if($item->status == 4)
+                                        <a onclick="return confirm('Одобрить перевод?');" href="/transactions/status/1/{{$item->id}}">
+                                            <button style="width:85px" class="btn btn-success">ОДОБРИТЬ</button></a>
+                                        <br>
+                                        <a onclick="return confirm('Отклонить перевод?');" href="/transactions/status/3/{{$item->id}}" >
+                                            <button class="btn" style="width:85px;background: red">ОТКЛОНИТЬ</button></a>
+                                        @else
+                                            @if($item->status === 1) Одобрено @endif
+                                            @if($item->status === 3) Отклонено @endif
 
-
+                                        @endif
+                                    </div>
+                                    @endif
+                                    
                                 </div>
+                                @endif
                             @endforeach
                         </div>
                         <div class="pagination pagination_offset">
-                            {{ $transactions->links() }}
+                            <p>Cтраница {{ $transactions->currentPage()}} из {{ $transactions->count() }}:</p>
+
+                            {{ $transactions->appends(request()->except('page'))->links() }}
                         </div>
                     </div>
                 </div>
