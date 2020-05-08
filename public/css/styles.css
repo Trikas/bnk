@@ -3856,3 +3856,6 @@ input[type=text], input[type=date]{
 .table__buttons {
     margin:0 auto;
 }
+.alert-danger{
+    color: red;
+}

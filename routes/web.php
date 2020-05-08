@@ -69,6 +69,10 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('export/accounts', 'Admin\ExportController@accounts')->name('export.accounts');
+    Route::get('feedback', 'Admin\FeedbackController@feedbackForm')->name('feedback.form');
+    Route::post('feedback-step1', 'Admin\FeedbackController@feedbackFormStep1')->name('feedback.form.step1');
+    Route::get('feedback-clear', 'Admin\FeedbackController@clearForm')->name('feedback.form.clear');
+    Route::post('feedback-clear', 'Admin\FeedbackController@feedbackFormStep2')->name('feedback.form.step2');
 
 });
 

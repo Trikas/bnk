@@ -3,6 +3,7 @@
         <a href="{{route('dashboard')}}" data-menu-id="dashboard" class="main-menu__list @if(Request::is('dashboard')|| Request::is('accounts*') || Request::is('statement*') || Request::is('statms*')) active @endif">Мой портфель</a>
         <a href="{{route('page.transaction.about')}}" data-menu-id="remittances_index" class="main-menu__list @if(Request::is('transactions*') || Request::is('payment*')) active @endif">Денежный перевод</a>
         <a href="{{route('services.index')}}" data-menu-id="services_index" class="main-menu__list @if(Request::is('services*') || Request::is('logs*') || Request::is('register*')) active @endif">Услуги</a>
+        <a href="{{route('feedback.form')}}"  class="main-menu__list">Написать администратору</a>
     </div>
 
     <div class="main-menu_col main-menu__white main-sub-menu my-portfolio sub-menu-item" data-menu-parent="dashboard" style="display: none">
@@ -21,8 +22,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
     @php
         if(Request::is('services') || Request::is('logs*') || Request::is('register*')){
                 $slug = 'third';

@@ -77,7 +77,7 @@ $( document ).ready(function() {
         $(this).prop("checked", true);
         $('#num_id').val( $(this).attr('data-val') );
     });
-    
+
     $('#op_go').click(function (e) {
         e.preventDefault();
         if( $('#num_id').val() != '' ){
