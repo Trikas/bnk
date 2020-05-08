@@ -69,10 +69,13 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('export/accounts', 'Admin\ExportController@accounts')->name('export.accounts');
-    Route::get('feedback', 'Admin\FeedbackController@feedbackForm')->name('feedback.form');
-    Route::post('feedback-step1', 'Admin\FeedbackController@feedbackFormStep1')->name('feedback.form.step1');
+    Route::get('feedback-step1', 'Admin\FeedbackController@feedbackForm')->name('feedback.form');
+    Route::post('feedback-step2', 'Admin\FeedbackController@feedbackFormStep2Store')->name('feedback.form.step2.store');
+    Route::get('feedback-step2', 'Admin\FeedbackController@feedbackFormStep2Show')->name('feedback.form.step2.show');
     Route::get('feedback-clear', 'Admin\FeedbackController@clearForm')->name('feedback.form.clear');
-    Route::post('feedback-clear', 'Admin\FeedbackController@feedbackFormStep2')->name('feedback.form.step2');
+    Route::post('feedback-step3', 'Admin\FeedbackController@feedbackFormStep3Store')->name('feedback.form.step3.store');
+    Route::get('feedback-step3', 'Admin\FeedbackController@feedbackFormStep3Show')->name('feedback.form.step3.show');
+    Route::get('feedback-generatePdf', 'Admin\FeedbackController@generatePdf')->name('feedback.generatePdf');
 
 });
 

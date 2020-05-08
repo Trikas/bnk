@@ -8,14 +8,9 @@
 
                 <div class="overview__line">
                     <h2 class="overview__title">
-                        Форма обратной связи
+                        Форма обратной связи (Шаг 1 из 3)
                     </h2>
                 </div>
-
-                <div class="pin-text">
-                    Тут вы можете написать администратору
-                </div>
-
 
                 <div class="select__row">
 
@@ -24,7 +19,7 @@
 
                 <div class="select__tab tab-widget">
 
-                    <form action="{{route('feedback.form.step1')}}" method="post">
+                    <form action="{{route('feedback.form.step2.store')}}" method="post">
                         @csrf
                         <span>Предмет: </span>
                         @error('typeFeedback')

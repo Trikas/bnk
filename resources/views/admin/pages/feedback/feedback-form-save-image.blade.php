@@ -8,14 +8,9 @@
 
                 <div class="overview__line">
                     <h2 class="overview__title">
-                        Форма обратной связи
+                        Форма обратной связи (Шаг 2 из 3)
                     </h2>
                 </div>
-
-                <div class="pin-text">
-                    Тут вы можете написать администратору
-                </div>
-
 
                 <div class="select__row">
 
@@ -24,7 +19,7 @@
 
                 <div class="select__tab tab-widget">
 
-                    <form action="{{route('feedback.form.step2')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('feedback.form.step3.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <span>Предмет: </span><b>{{session('typeFeedback')}}</b>
                         <br>
@@ -36,7 +31,11 @@
                             <span>Контактный телефон:</span> <b>{{session('phone')}}</b>
                         @endif
                         <br><br>
-                        <span>Выберите тип файла(.doc, .txt, .zip и тд) для загрузки: </span><input type="checkbox" value="on" name="fileCheck"><br>
+{{--                        <span>Выберите тип файла(.doc, .txt, .zip и тд) для загрузки: </span>--}}
+{{--                        <input type="checkbox" value="on" name="fileCheck" {{old('fileCheck') ? 'checked' : ''}}><br>--}}
+                        @error('file')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <span>Прикрепить документ(.docx, .doc, .txt, .zip, .pdf, .png, .jpg ): </span><input type="file" name="file"><br><br>
                         <a href="{{route('feedback.form.clear')}}"><button type="button"> Отменить</button></a> &nbsp;<a href="{{route('feedback.form')}}"><button type="button"> Изменить</button></a> &nbsp; <input type="submit" value="Подтвердить">
                     </form>
