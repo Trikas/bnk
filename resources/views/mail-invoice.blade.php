@@ -1,14 +1,18 @@
-<table width="555" align="center" class="remittanceAdvice" border="0" cellspacing="1"
+<style>
+    body { font-family: DejaVu Sans, sans-serif; }
+    body{ width: 100px;}
+</style>
+<table align="center" class="remittanceAdvice" border="0" cellspacing="1"
        cellpadding="1">
     <tbody>
     <tr>
-        <td width="50%" align="left" valign="top" style="padding-bottom: 20px;"
+        <td width="50%" align="left" valign="top"
             colspan="2">
 
             <br>
 
         </td>
-        <td width="50%" align="right" valign="top" style="padding-bottom: 20px;">
+        <td width="50%" align="right" valign="top">
             <table width="75%" border="0" cellspacing="0" cellpadding="0">
                 <tbody>
                 <tr>
@@ -296,7 +300,7 @@
         <td>
             &nbsp;
         </td>
-        <td width="280">
+        <td>
             {{$trans->payment->payer_bank }} {{$trans->payment->recipier_bank }}
             {{$trans->description}}
         </td>
@@ -322,12 +326,6 @@
                 </tr>
                 </tbody>
             </table>
-        </td>
-    </tr>
-
-    <tr>
-        <td style="width: 600px; padding-top: 50px;" colspan="3">
-
         </td>
     </tr>
     </tbody>

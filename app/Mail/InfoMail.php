@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -36,11 +37,13 @@ class InfoMail extends Mailable
      */
     public function build()
     {
-        $name = rand(10000, 99999).'invoices.xlsx';
-        Excel::store(new ExportInvoice($this->trans), $name, 'public');
+        $name = rand(10000, 99999) . 'invoices.pdf';
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('mail-invoice', ['trans' => $this->trans]));
         return $this->from('astrowinbank@astrowinbank.com')
-            ->subject('New payment')->view('admin.pdf.new-payment-info', ['link'=>asset('storage/public/'.$name)])
-            ->with('trans', $this->trans);
+            ->subject('New payment')->view('admin.pdf.new-payment-info')
+            ->with('trans', $this->trans)
+            ->attachData($pdf->output(), $name);
     }
 
 }
