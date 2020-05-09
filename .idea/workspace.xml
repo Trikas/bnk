@@ -40,7 +40,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Add: attach file xls">
+    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Hot-fix: attach file xls">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -267,7 +269,7 @@
       <workItem from="1582210420362" duration="13811000" />
       <workItem from="1582304407208" duration="1174000" />
       <workItem from="1588948295281" duration="5296000" />
-      <workItem from="1588959313938" duration="33212000" />
+      <workItem from="1588959313938" duration="33943000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -311,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588992207046</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Hot-fix: attach file xls">
+      <created>1588992543953</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588992543953</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +345,8 @@
     <MESSAGE value="Fix: feedback form" />
     <MESSAGE value="Add: attach file" />
     <MESSAGE value="Add: attach file xls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: attach file xls" />
+    <MESSAGE value="Hot-fix: attach file xls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hot-fix: attach file xls" />
   </component>
   <component name="WindowStateProjectService">
     <state x="397" y="167" width="832" height="711" key="#SSH_Configurations" timestamp="1588950890222">
@@ -443,10 +453,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588992208718">
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588992545527">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588992208718" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588992545527" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
