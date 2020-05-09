@@ -92,7 +92,7 @@
                                                             <tbody>
                                                             <tr>
                                                                 <td width="50%" align="left" valign="top" style="padding-bottom: 20px;" colspan="2">
-                                                                    
+
                                                                     <br>
 
                                                                 </td>
@@ -430,27 +430,12 @@
                     </div>
                 </form>
                 </body>
-
-
-
-
-
-
-
-
-
-
                 <div class="table__buttons table__buttons_offset">
                     <a class="btn" href="#" onclick="history.back()">Назад</a>
                 </div>
                 <div class="table__buttons ">
-
-
-
                     <a class="btn" href="#" onclick="print()">Печать</a>
                 </div>
-
             </div>
         </div>
-
     </div>

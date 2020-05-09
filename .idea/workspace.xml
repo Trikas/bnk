@@ -41,8 +41,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Add: attach file">
+      <change afterPath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FeedbackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FeedbackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pdf/new-payment-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pdf/new-payment-info.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +273,7 @@
       <workItem from="1582210420362" duration="13811000" />
       <workItem from="1582304407208" duration="1174000" />
       <workItem from="1588948295281" duration="5296000" />
-      <workItem from="1588959313938" duration="28889000" />
+      <workItem from="1588959313938" duration="32862000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -298,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588987977880</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add: attach file">
+      <created>1588988218895</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588988218895</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,10 +349,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="418" y="177" width="984" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.985@0.27.1920.985" timestamp="1588966871693" />
-    <state x="768" y="238" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1588984835196">
+    <state x="768" y="238" width="412" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1588989749597">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="768" y="238" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.985@0.27.1920.985" timestamp="1588984835196" />
+    <state x="768" y="238" width="412" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.985@0.27.1920.985" timestamp="1588989749597" />
     <state x="693" y="277" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588986873732">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
@@ -409,10 +421,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state width="1874" height="313" key="GridCell.Tab.2.right/0.27.1920.985@0.27.1920.985" timestamp="1588986801409" />
-    <state x="698" y="239" width="513" height="568" key="NewPhpClassDialog" timestamp="1588978574098">
+    <state x="698" y="239" width="513" height="568" key="NewPhpClassDialog" timestamp="1588989262076">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="698" y="239" width="513" height="568" key="NewPhpClassDialog/0.27.1920.985@0.27.1920.985" timestamp="1588978574098" />
+    <state x="698" y="239" width="513" height="568" key="NewPhpClassDialog/0.27.1920.985@0.27.1920.985" timestamp="1588989262076" />
     <state x="494" y="98" width="961" height="651" key="PhpMappingAdvancedResolveDialog" timestamp="1588966617854">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
@@ -429,6 +441,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588988222221">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588988222221" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
