@@ -40,9 +40,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Hot-fix: attach file xls">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" afterDir="false" />
+    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Hot-fix: attach file csv">
       <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +267,7 @@
       <workItem from="1582210420362" duration="13811000" />
       <workItem from="1582304407208" duration="1174000" />
       <workItem from="1588948295281" duration="5296000" />
-      <workItem from="1588959313938" duration="33943000" />
+      <workItem from="1588959313938" duration="34104000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -320,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588992543953</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Hot-fix: attach file csv">
+      <created>1588993306363</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588993306363</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +351,8 @@
     <MESSAGE value="Add: attach file" />
     <MESSAGE value="Add: attach file xls" />
     <MESSAGE value="Hot-fix: attach file xls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hot-fix: attach file xls" />
+    <MESSAGE value="Hot-fix: attach file csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hot-fix: attach file csv" />
   </component>
   <component name="WindowStateProjectService">
     <state x="397" y="167" width="832" height="711" key="#SSH_Configurations" timestamp="1588950890222">
@@ -377,10 +383,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="643" y="277" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY/0.27.1920.985@0.27.1920.985" timestamp="1588951704550" />
-    <state x="100" y="127" width="1720" height="785" key="DiffContextDialog" timestamp="1588974494991">
+    <state x="100" y="127" width="1720" height="785" key="DiffContextDialog" timestamp="1588993317021">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="100" y="127" width="1720" height="785" key="DiffContextDialog/0.27.1920.985@0.27.1920.985" timestamp="1588974494991" />
+    <state x="100" y="127" width="1720" height="785" key="DiffContextDialog/0.27.1920.985@0.27.1920.985" timestamp="1588993317021" />
     <state x="738" y="280" width="424" height="491" key="FileChooserDialogImpl" timestamp="1588951251781">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
@@ -453,10 +459,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588992545527">
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588993319140">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588992545527" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588993319140" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>

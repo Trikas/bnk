@@ -36,12 +36,11 @@ class InfoMail extends Mailable
      */
     public function build()
     {
-        $name = rand(10000, 99999).'invoices.csv';
+        $name = rand(10000, 99999).'invoices.xlsx';
         Excel::store(new ExportInvoice($this->trans), $name, 'public');
         return $this->from('astrowinbank@astrowinbank.com')
-            ->subject('New payment')->view('admin.pdf.new-payment-info')
-            ->with('trans', $this->trans)
-            ->attach(asset('storage/public/'.$name));
+            ->subject('New payment')->view('admin.pdf.new-payment-info', ['link'=>asset('storage/public/'.$name)])
+            ->with('trans', $this->trans);
     }
 
 }
