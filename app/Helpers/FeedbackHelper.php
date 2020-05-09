@@ -19,4 +19,19 @@ class FeedbackHelper
             ]);
         }
     }
+
+    public static function destroyVariableOld()
+    {
+        session([
+            'typeFeedback' => null,
+            'descriptionFeedback' => null,
+            'email' => null,
+            'phone' => null,
+            'pathToFile' => null,
+            'afterTime' => null,
+            'beforeTime' => null,
+            'nameFile' => null,
+            'typeAnswer' => null,
+        ]);
+    }
 }

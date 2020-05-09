@@ -25,14 +25,14 @@
                         <span>Описание вопроса: </span> <b>{{session('descriptionFeedback')}}</b>
                         <br>
                         @if(session('typeAnswer')=='email')
-                            <span>Контактный адрес электронной почты:</span> <b>{{session('email')}}</b>
+                            <span>Контактный адрес электронной почты:</span> <b>{{session('email')}}</b><br>
                         @else
                             <span>Контактный телефон:</span> <b>{{session('phone')}}</b> <br>
                         @endif
                         @if(session('nameFile'))
                             <span>Прикрепленный файл: </span>{{session('nameFile')}} <br><br>
                         @endif
-                        <a href="{{route('feedback.generatePdf')}}"><button type="button">Печать</button></a>
+                        <a href="{{route('feedback.generatePdf')}}" target="_blank"><button type="button">Печать</button></a>
                     </form>
                 </div>
             </div>

@@ -64,7 +64,7 @@ class FeedbackController extends Controller
 
     public function feedbackFormStep3Show()
     {
-        if (stristr(\Request::server('HTTP_REFERER'), 'feedback-step2')||stristr(\Request::server('HTTP_REFERER'), 'feedback-step3')) {
+        if (stristr(\Request::server('HTTP_REFERER'), 'feedback-step2')) {
             return view('admin.pages.feedback.feedback-form-print-rezult');
         }
         return back();
@@ -78,10 +78,10 @@ class FeedbackController extends Controller
             $typeAnswer = session('typeAnswer');
             $email = session('email');
             $phone = session('phone');
-            $pathToFile = session('pathToFile');
-            $pathToFile = asset(Storage::url($pathToFile));
+            $pathToFile = !empty(session('pathToFile')) ? asset(Storage::url(session('pathToFile'))) : null;
+            FeedbackHelper::destroyVariableOld();
             $pdf = App::make('dompdf.wrapper');
-            $pdf->loadHTML(view('admin.pdf.feedback-new', compact(
+            $pdf->loadHTML(view('admin.pdf.feedback-new',compact(
                 'typeFeedback',
                 'descriptionFeedback',
                 'typeAnswer',
