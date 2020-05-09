@@ -16,7 +16,7 @@ class AccountController extends Controller
     public function index()
     {
         $types = Accounttype::whereUserId(Auth::id())->get();
-       
+
         foreach ($types as $item){
             $count[] = $item->accounts(Auth::id())->count();
 

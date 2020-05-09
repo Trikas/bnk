@@ -26,6 +26,12 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        $schedule->command('queue:restart')
+            ->everyFiveMinutes();
+
+        $schedule->command('queue:work --tries=3')
+            ->everyMinute();
     }
 
     /**

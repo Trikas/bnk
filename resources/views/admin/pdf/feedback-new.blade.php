@@ -127,7 +127,7 @@
     @else
         <span>Контактный телефон:</span> <b>{{$phone}}</b> <br>
     @endif
-    @if($pathToFile)
+    @if(isset($pathToFile))
         <span>Прикрепленный файл: </span><br><br><br>
         <img src="{{$pathToFile}}" alt="" width="200">
     @endif

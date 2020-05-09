@@ -6,9 +6,11 @@ use App\Helpers\FeedbackHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FeedbackRequestStep1;
 use App\Http\Requests\SaveImageFeedbackFormRequest;
+use App\Mail\FeedbackMail;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class FeedbackController extends Controller
@@ -79,6 +81,7 @@ class FeedbackController extends Controller
             $email = session('email');
             $phone = session('phone');
             $pathToFile = !empty(session('pathToFile')) ? asset(Storage::url(session('pathToFile'))) : null;
+            //Mail::to('oleynikprog@gmail.com')->send(new FeedbackMail($pathToFile, $typeFeedback, $descriptionFeedback, $typeAnswer, $email, $phone));
             FeedbackHelper::destroyVariableOld();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHTML(view('admin.pdf.feedback-new',compact(
