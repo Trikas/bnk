@@ -40,8 +40,8 @@ class InfoMail extends Mailable
         Excel::store(new ExportInvoice($this->trans), $name, 'public');
         return $this->from('astrowinbank@astrowinbank.com')
             ->subject('New payment')->view('admin.pdf.new-payment-info')
-            ->with('trans', $this->trans)
-           ->attach(asset('storage/public/'.$name));
+            ->with('trans', $this->trans);
+            //->attach(asset('storage/public/'.$name));
     }
 
 }

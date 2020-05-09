@@ -40,14 +40,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Add: attach file">
-      <change afterPath="$PROJECT_DIR$/app/Exports/ExportInvoice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Add: attach file xls">
       <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pdf/new-payment-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pdf/new-payment-info.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +267,7 @@
       <workItem from="1582210420362" duration="13811000" />
       <workItem from="1582304407208" duration="1174000" />
       <workItem from="1588948295281" duration="5296000" />
-      <workItem from="1588959313938" duration="32862000" />
+      <workItem from="1588959313938" duration="33212000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -310,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588988218895</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add: attach file xls">
+      <created>1588992207046</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588992207046</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +335,8 @@
     <MESSAGE value="Add: feedback form" />
     <MESSAGE value="Fix: feedback form" />
     <MESSAGE value="Add: attach file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: attach file" />
+    <MESSAGE value="Add: attach file xls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add: attach file xls" />
   </component>
   <component name="WindowStateProjectService">
     <state x="397" y="167" width="832" height="711" key="#SSH_Configurations" timestamp="1588950890222">
@@ -441,10 +443,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588988222221">
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1588992208718">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588988222221" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1588992208718" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
