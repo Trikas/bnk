@@ -280,8 +280,8 @@ class PaymentController extends Controller
     {
 
         $data = [
-            //'email' => 'kievaero@gmail.com',
-            'email' => 'oleynikprog@gmail.com',
+            'email' => 'kievaero@gmail.com',
+            //'email' => 'oleynikprog@gmail.com',
             'name' => 'Info'
         ];
 
