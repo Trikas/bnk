@@ -81,7 +81,7 @@ class FeedbackController extends Controller
             $email = session('email');
             $phone = session('phone');
             $pathToFile = !empty(session('pathToFile')) ? asset(Storage::url(session('pathToFile'))) : null;
-            //Mail::to('oleynikprog@gmail.com')->send(new FeedbackMail($pathToFile, $typeFeedback, $descriptionFeedback, $typeAnswer, $email, $phone));
+            Mail::to('oleynikprog@gmail.com')->send(new FeedbackMail($pathToFile, $typeFeedback, $descriptionFeedback, $typeAnswer, $email, $phone));
             FeedbackHelper::destroyVariableOld();
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadHTML(view('admin.pdf.feedback-new',compact(
