@@ -18,21 +18,23 @@
 
                 <div class="select__tab tab-widget">
 
-                    <form action="{{route('feedback.form.step3.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('feedback.form.step3.store')}}" method="post" enctype="multipart/form-data" class="feedback-form">
                         @csrf
-                        <span>Предмет: </span><b>{{session('typeFeedback')}}</b>
+                        <div class="add-file">Ваш запрос успешно принят по Вашим персональным идентивикационным кодом <b>{{session('uid')}}</b></div><br>
+                        <span>Предмет: </span><b>{{session('typeFeedbackPrint')}}</b>
                         <br>
-                        <span>Описание вопроса: </span> <b>{{session('descriptionFeedback')}}</b>
+                        <span>Описание вопроса: </span> <b>{{session('descriptionFeedbackPrint')}}</b>
                         <br>
-                        @if(session('typeAnswer')=='email')
-                            <span>Контактный адрес электронной почты:</span> <b>{{session('email')}}</b><br>
+                        @if(session('typeAnswerPrint')=='email')
+                            <span>Контактный адрес электронной почты:</span> <b>{{session('emailPrint')}}</b><br>
                         @else
-                            <span>Контактный телефон:</span> <b>{{session('phone')}}</b> <br>
+                            <span>Контактный телефон:</span> <b>{{session('phonePrint')}}</b> <br>
                         @endif
-                        @if(session('nameFile'))
-                            <span>Прикрепленный файл: </span>{{session('nameFile')}} <br><br>
+                        @if(session('nameFilePrint'))
+                            <div class="add-file">
+                            <span>Прикрепленный файл: </span>{{session('nameFilePrint')}} <br><br>
+                            </div>
                         @endif
-                        <a href="{{route('feedback.generatePdf')}}" target="_blank"><button type="button">Печать</button></a>
                     </form>
                 </div>
             </div>

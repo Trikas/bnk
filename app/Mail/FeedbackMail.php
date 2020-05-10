@@ -17,6 +17,7 @@ class FeedbackMail extends Mailable implements ShouldQueue
     private $typeAnswer;
     private $email;
     private $phone;
+    private $uid;
 
     /**
      * Create a new message instance.
@@ -27,8 +28,9 @@ class FeedbackMail extends Mailable implements ShouldQueue
      * @param $typeAnswer
      * @param $email
      * @param $phone
+     * @param $uid
      */
-    public function __construct($file, $typeFeedback, $descriptionFeedback, $typeAnswer, $email, $phone)
+    public function __construct($file, $typeFeedback, $descriptionFeedback, $typeAnswer, $email, $phone, $uid)
     {
         $this->file = $file;
         $this->typeFeedback = $typeFeedback;
@@ -36,6 +38,7 @@ class FeedbackMail extends Mailable implements ShouldQueue
         $this->typeAnswer = $typeAnswer;
         $this->email = $email;
         $this->phone = $phone;
+        $this->uid = $uid;
     }
 
     /**
@@ -54,6 +57,7 @@ class FeedbackMail extends Mailable implements ShouldQueue
                     'typeAnswer' => $this->typeAnswer,
                     'email' => $this->email,
                     'phone' => $this->phone,
+                    'uid' => $this->uid
                 ]
             );
         if ($this->file) {

@@ -19,25 +19,39 @@
 
                 <div class="select__tab tab-widget">
 
-                    <form action="{{route('feedback.form.step3.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('feedback.form.step3.store')}}" method="post" enctype="multipart/form-data"
+                          class="feedback-form">
                         @csrf
                         <span>Предмет: </span><b>{{session('typeFeedback')}}</b>
                         <br>
                         <span>Описание вопроса: </span> <b>{{session('descriptionFeedback')}}</b>
                         <br>
                         @if(session('typeAnswer')=='email')
-                        <span>Контактный адрес электронной почты:</span> <b>{{session('email')}}</b>
+                            <span>Контактный адрес электронной почты:</span> <b>{{session('email')}}</b>
                         @else
                             <span>Контактный телефон:</span> <b>{{session('phone')}}</b>
                         @endif
                         <br><br>
-{{--                        <span>Выберите тип файла(.doc, .txt, .zip и тд) для загрузки: </span>--}}
-{{--                        <input type="checkbox" value="on" name="fileCheck" {{old('fileCheck') ? 'checked' : ''}}><br>--}}
+                        <span>Выберите тип файла(.doc, .txt, .zip и тд) для загрузки: </span>
+                        <input type="checkbox" value="on" name="fileCheck" class="fileCheck" {{old('fileCheck') ? 'checked' : ''}}><br><br>
                         @error('file')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <span>Прикрепить документ(.docx, .doc, .txt, .zip, .pdf, .png, .jpg ): </span><input type="file" name="file"><br><br>
-                        <a href="{{route('feedback.form.clear')}}"><button type="button"> Отменить</button></a> &nbsp;<a href="{{route('feedback.form')}}"><button type="button"> Изменить</button></a> &nbsp; <input type="submit" value="Подтвердить">
+                        <div @if(empty(old('fileCheck'))) style="display: none" @endif class="add-file">
+                            <span>Прикрепить документ(.docx, .doc, .txt, .zip, .pdf, .png, .jpg ): </span><input
+                                type="file" name="file">
+                        </div>
+                        <br><br>
+                        <div class="table__buttons">
+                            <a class="btn" href="{{route('feedback.form.clear')}}">
+                                 Отменить
+                            </a> &nbsp;
+                            <a class="btn" href="{{route('feedback.form')}}">
+                                 Изменить
+                            </a> &nbsp;
+                            <input class="btn" type="submit" value="Подтвердить">
+                        </div>
+
                     </form>
                 </div>
             </div>

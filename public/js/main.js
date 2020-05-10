@@ -22,6 +22,16 @@ $(document).ready(function () {
             console.log(date);
         }
     });*/
+    $('#radioButtonPhone').one('click', function(){
+        $('.timeOptions').removeAttr('disabled');
+    })
+    $('.fileCheck').on('click', function () {
+        if($('.add-file').css('display')==='none'){
+            $('.add-file').css('display','block');
+        }else{
+            $('.add-file').css('display','none');
+        }
+    })
 });
 
 

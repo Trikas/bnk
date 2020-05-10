@@ -3859,3 +3859,35 @@ input[type=text], input[type=date]{
 .alert-danger{
     color: red;
 }
+.feedback-form{
+    width: 400px;
+    margin: auto;
+    font-size: 12px;
+    font-family: Verdana;
+    font-weight: 400;
+    line-height: 14px;
+}
+.wrap-option{
+    margin: auto;
+}
+.inputs-option-answer{
+    width: 100px;
+}
+.center-label{
+    display: flex;
+    margin-top: 50%;
+}
+.option-cost{
+    margin-top: 10px;
+    display: flex;
+}
+.list-option{
+    display: inherit;
+}
+.list-option li{
+    margin-right: 20px;
+    width: 100%;
+}
+.add-file{
+    width: 800px;
+}

@@ -27,8 +27,8 @@ class FeedbackRequestStep1 extends FormRequest
             'typeFeedback' => 'required',
             'descriptionFeedback' => 'required|max:10000',
             'typeAnswer' => 'required',
-            'afterTime' => 'required',
-            'beforeTime' => 'required|after:afterTime',
+            'afterTime' => 'required_if:typeAnswer, phone',
+            'beforeTime' => 'required_if:ypeAnswer, phone|after:afterTime',
             'email' => 'required_if:typeAnswer,email',
             'phone' => 'required_if:typeAnswer,phone',
         ];

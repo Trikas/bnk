@@ -24,7 +24,7 @@ class SaveImageFeedbackFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'mimes:jpeg,bmp,png,doc,docx,txt,jpg,pdf,zip|max:100000'
+            'file' => 'required_if:fileCheck,on|mimes:jpeg,bmp,png,doc,docx,txt,jpg,pdf,zip|max:100000'
         ];
     }
 }
