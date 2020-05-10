@@ -38,11 +38,12 @@ class InfoMail extends Mailable
     public function build()
     {
         $name = rand(10000, 99999) . 'invoices.pdf';
+        $customPaper = array(0,0,960,680);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('mail-invoice', ['trans' => $this->trans]));
+        $pdf->loadHTML(view('mail-invoice', ['trans' => $this->trans]))->setPaper($customPaper);
         return $this->from('astrowinbank@astrowinbank.com')
-            ->subject('New payment')->view('admin.pdf.new-payment-info')
-            ->with('trans', $this->trans)
+            ->view('empty-message')
+            ->subject('New payment')
             ->attachData($pdf->output(), $name);
     }
 
