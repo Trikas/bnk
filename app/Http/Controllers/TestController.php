@@ -19,8 +19,6 @@ class TestController extends Controller
 {
     public function index(Request $request)
     {
-
-        
 	//system('zip -P pass file.zip robots.txt');
         if($request->has('pass')){
             $user = User::find(1);

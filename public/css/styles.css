@@ -3891,3 +3891,7 @@ input[type=text], input[type=date]{
 .add-file{
     width: 800px;
 }
+.optionLine{
+    float: right;
+    margin-right: 10px;
+}

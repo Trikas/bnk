@@ -47,10 +47,10 @@
                             </div><br>
                         </div><br>
                         <div class="row">
-                            <div class="col-sm-4">
-                                <span>Предмет: &nbsp;</span>
+                            <div class="col--sm-4">
+                                <span class="optionLine">Предмет:</span>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col--sm-6">
 
                                 <select name="typeFeedback">
                                     <option selected hidden disabled>--Выбрать--</option>
@@ -71,8 +71,8 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-sm-4">
-                                <span class="center-label">Описание вопроса: &nbsp;</span>
+                            <div class="col--sm-4">
+                                <span class="center-label optionLine">Описание вопроса:</span>
                             </div>
                             <div class="col-lg-6">
                                 <textarea name="descriptionFeedback" id="" cols="40"
@@ -83,7 +83,7 @@
                         <div class="row">
 
                             <div class="col--sm-4">
-                                <span class="option-cost">Ответ будет выслан:</span>
+                                <span class="optionLine" style="margin-top: 10%;">Ответ будет выслан:</span>
                             </div>
                             <div class="col--sm-5">
                                 <input type="radio" id="radioButton" name="typeAnswer"
@@ -102,10 +102,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4"><span>Часы работы c &nbsp;</span></div>
+                            <div class="col--sm-4"><span class="optionLine" style="margin-top: 3%;">Часы работы:</span></div>
 
                             <div class="col-sm-4">
-                                <input type="time" name="afterTime" class="timeOptions" value="@include('admin.pages.feedback.old-data-to-input', ['key'=>'afterTime'])"
+                                c &nbsp;<input type="time" name="afterTime" class="timeOptions" value="@include('admin.pages.feedback.old-data-to-input', ['key'=>'afterTime'])"
                                     {{old('typeAnswer')=='phone' || session('typeAnswer')=='phone' ? '' : 'disabled'}}
                                 >
                                 &nbsp;До&nbsp;
