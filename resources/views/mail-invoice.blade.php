@@ -305,28 +305,5 @@
             {{$trans->description}}
         </td>
     </tr>
-    <tr>
-        <td>
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-        <td>
-            <table width="100%" cellspacing="0" cellpadding="0">
-                <tbody>
-                <tr>
-                    <td id="_mainContentPlaceHolder_receivedRemittanceAdviceCtrl00_senderChargesCell">
-
-                    </td>
-
-                    <td align="right">
-                        ---
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </td>
-    </tr>
     </tbody>
 </table>
