@@ -1,6 +1,5 @@
 <style>
     body { font-family: DejaVu Sans, sans-serif; }
-    body{ width: 100px;}
 </style>
 <table align="center" class="remittanceAdvice" border="0" cellspacing="1"
        cellpadding="1">

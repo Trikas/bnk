@@ -46,13 +46,15 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:feature/feedback-form" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Fix: name css file" />
+    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Fix: name css file 1.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,6 +208,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
@@ -286,7 +290,8 @@
       <workItem from="1588948295281" duration="5296000" />
       <workItem from="1588959313938" duration="34364000" />
       <workItem from="1589008127402" duration="3518000" />
-      <workItem from="1589106977742" duration="17755000" />
+      <workItem from="1589106977742" duration="18552000" />
+      <workItem from="1589135118657" duration="746000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -407,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589128353840</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix: name css file 1.1">
+      <created>1589128845262</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1589128845262</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,19 +440,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="feature/feedback-form" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -464,7 +464,8 @@
     <MESSAGE value="Fix: cssm feedback form" />
     <MESSAGE value="Fix: name in menu" />
     <MESSAGE value="Fix: name css file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: name css file" />
+    <MESSAGE value="Fix: name css file 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: name css file 1.1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="181" width="800" height="736" key="#Intentions" timestamp="1589122117791">
@@ -583,10 +584,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1589128355229">
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1589128846633">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1589128355229" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1589128846633" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
@@ -599,10 +600,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="693" y="327" width="524" height="391" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.27.1920.985@0.27.1920.985" timestamp="1588952267161" />
-    <state x="651" y="128" width="618" height="783" key="find.popup" timestamp="1589127960093">
+    <state x="1302" y="204" width="618" height="783" key="find.popup" timestamp="1589128794092">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="651" y="128" width="618" height="783" key="find.popup/0.27.1920.985@0.27.1920.985" timestamp="1589127960093" />
+    <state x="1302" y="204" width="618" height="783" key="find.popup/0.27.1920.985@0.27.1920.985" timestamp="1589128794092" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

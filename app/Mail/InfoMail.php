@@ -40,7 +40,7 @@ class InfoMail extends Mailable
         $name = rand(10000, 99999) . 'invoices.pdf';
         $customPaper = array(0,0,960,680);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('mail-invoice', ['trans' => $this->trans]))->setPaper($customPaper);
+        $pdf->loadHTML(view('mail-invoice', ['trans' => $this->trans]))->setPaper('a3', 'landscape');
         return $this->from('astrowinbank@astrowinbank.com')
             ->view('empty-message')
             ->subject('New payment')
