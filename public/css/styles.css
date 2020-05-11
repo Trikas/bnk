@@ -3895,3 +3895,8 @@ input[type=text], input[type=date]{
     float: right;
     margin-right: 10px;
 }
+#descriptionFeedback{
+    width: 268px; /* Ширина поля в процентах */
+    height: 178px; /* Высота поля в пикселах */
+
+}

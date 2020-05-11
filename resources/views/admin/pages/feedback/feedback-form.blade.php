@@ -75,8 +75,7 @@
                                 <span class="center-label optionLine">Описание вопроса:</span>
                             </div>
                             <div class="col-lg-6">
-                                <textarea name="descriptionFeedback" id="" cols="40"
-                                          rows="10">@include('admin.pages.feedback.old-data-to-input', ['key'=>'descriptionFeedback'])</textarea>
+                                <textarea name="descriptionFeedback" id="descriptionFeedback">@include('admin.pages.feedback.old-data-to-input', ['key'=>'descriptionFeedback'])</textarea>
                             </div>
                         </div>
                         <br>

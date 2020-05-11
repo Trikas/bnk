@@ -50,10 +50,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Fix: name css file 1.1">
+    <list default="true" id="0d31f867-9760-44e4-825b-432f2979dec8" name="Default Changelist" comment="Fix: print pdf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/InfoMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfoMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail-invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/feedback/feedback-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/feedback/feedback-form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +291,8 @@
       <workItem from="1588959313938" duration="34364000" />
       <workItem from="1589008127402" duration="3518000" />
       <workItem from="1589106977742" duration="18552000" />
-      <workItem from="1589135118657" duration="746000" />
+      <workItem from="1589135118657" duration="1000000" />
+      <workItem from="1589187392570" duration="822000" />
     </task>
     <task id="LOCAL-00001" summary="Add: feedback form without accept and print">
       <created>1588974451699</created>
@@ -419,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589128845262</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix: print pdf">
+      <created>1589135905992</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1589135905992</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +473,8 @@
     <MESSAGE value="Fix: name in menu" />
     <MESSAGE value="Fix: name css file" />
     <MESSAGE value="Fix: name css file 1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: name css file 1.1" />
+    <MESSAGE value="Fix: print pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: print pdf" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="181" width="800" height="736" key="#Intentions" timestamp="1589122117791">
@@ -584,10 +593,10 @@
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="733" y="434" width="443" height="178" key="VCS.ChangelistChooser/0.27.1920.985@0.27.1920.985" timestamp="1588974515878" />
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1589128846633">
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1589135907747">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
-    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1589128846633" />
+    <state x="555" y="241" width="800" height="563" key="Vcs.Push.Dialog.v2/0.27.1920.985@0.27.1920.985" timestamp="1589135907747" />
     <state x="845" y="409" width="367" height="269" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588951290414">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
