@@ -22,16 +22,17 @@ class FeedbackService
             'nameFilePrint' => session('nameFile'),
         ]);
         $pathToFile = !empty(session('pathToFile')) ? asset(Storage::url(session('pathToFile'))) : null;
-        Mail::to('freemiumd@gmail.com')->send(
-            new FeedbackMail(
-                $pathToFile,
-                session('typeFeedback'),
-                session('descriptionFeedback'),
-                session('typeAnswer'),
-                session('email'),
-                session('phone'),
-                $uid
-            ));
+        Mail::to('kievaero@gmail.com')
+            ->send(
+                new FeedbackMail(
+                    $pathToFile,
+                    session('typeFeedback'),
+                    session('descriptionFeedback'),
+                    session('typeAnswer'),
+                    session('email'),
+                    session('phone'),
+                    $uid
+                ));
         FeedbackHelper::destroyVariableOld();
     }
 }
